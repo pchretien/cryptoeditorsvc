@@ -15,7 +15,7 @@ a.nolink
 
 a
 {
-	color:5555ff;
+	color:3333ff;
 	text-decoration:none;
 	font-weight:bold;
 	font-size:small;
@@ -36,7 +36,7 @@ img
 
 button, a.button {
     	color: #fff;
-    	background-color: #88ff88; /* full secondary color */
+    	background-color: #aaaaff; /* full secondary color */
     	/*margin: 0 0 0 1em;
     	padding: .2em 8px;*/
     	font-size: 1em;
