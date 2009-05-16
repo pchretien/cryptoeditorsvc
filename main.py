@@ -124,7 +124,7 @@ class ForgotHandler(webapp.RequestHandler):
         msg = template.render('forgot.eml', pageParams)            
         mail.send_mail(sender=senderEmailAddress,
                        to=email,
-                       subject="GaeBase password reset confirmation",
+                       subject="CryptoEditor password reset confirmation",
                        body=msg)
         
         pageParams['message'] = "An email has been sent to " + email
@@ -247,7 +247,7 @@ class RegisterHandler(webapp.RequestHandler):
         msg = template.render('confirm.eml', pageParams)            
         mail.send_mail(sender=senderEmailAddress,
                        to=email,
-                       subject="GaeBase registration confirmation",
+                       subject="CryptoEditor registration confirmation",
                        body=msg)
         
         pageParams['message'] = "A confirmation email has been sent to " + email
@@ -314,7 +314,7 @@ class ProfileHandler(webapp.RequestHandler):
             msg = template.render('changeemail.eml', pageParams)            
             mail.send_mail(sender=senderEmailAddress,
                            to=email,
-                           subject="GaeBase email address confirmation.",
+                           subject="CryptoEditor email address confirmation.",
                            body=msg)
             
             pageParams['message'] = "Check your inbox to confirm your email address change."
@@ -441,7 +441,7 @@ class ContactHandler(webapp.RequestHandler):
             return
         
         msg = template.render('contact.eml', pageParams)            
-        mail.send_mail(sender='GaeBase <'+senderEmailAddress+'>',
+        mail.send_mail(sender='CryptoEditor <'+senderEmailAddress+'>',
                        to=supportEmailAddress,
                        subject=subject,
                        body=msg)
