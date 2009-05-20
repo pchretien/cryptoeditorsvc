@@ -11,7 +11,6 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
 from basbrun import User
-from cryptoeditorsvc import CryptoEditorRegistration
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
@@ -249,9 +248,6 @@ class RegisterHandler(webapp.RequestHandler):
                      expiration = datetime.datetime.now() + three_months )
         user.put()
         
-        registration = CryptoEditorRegistration() 
-        
-        #pageParams['key'] = user.key()        
         pageParams['key'] = user.regkey
         
         msg = template.render('confirm.eml', pageParams)            
