@@ -1,5 +1,6 @@
 
 import uuid
+import datetime
 import wsgiref.handlers
 from Crypto.Hash import MD5
 
@@ -236,11 +237,16 @@ class RegisterHandler(webapp.RequestHandler):
             self.response.out.write( template.render('register.html', pageParams))
             return
         
+        three_months = datetime.timedelta(days=90)
+        
         user = User( regkey=str(uuid.uuid4()),
                      email=email,
                      password=hash(password1),
                      firstname=firstname,
-                     lastname=lastname )
+                     lastname=lastname,
+                     license=str(uuid.uuid4()),
+                     status = 0,
+                     expiration = datetime.datetime.now() + three_months )
         user.put()
         
         registration = CryptoEditorRegistration() 
@@ -263,10 +269,15 @@ class ProfileHandler(webapp.RequestHandler):
         pageParams = checkLogin(self)
         
         user = getUser(self)
+        if user is None:
+            self.redirect("/login")
+            return;
         
         pageParams['emailvalue'] = user.email
         pageParams['firstnamevalue'] = user.firstname
         pageParams['lastnamevalue'] = user.lastname
+        pageParams['license'] = user.license
+        pageParams['expiration'] = user.expiration.date()
                     
         self.response.out.write( template.render('profile.html', pageParams))
         

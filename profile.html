@@ -54,6 +54,25 @@
 			<td colspan="2" align="right"><input type="submit" value="Change Password"/></td>
 		</tr>
 		</form>
+		{%if license%}
+		<tr><td colspan=2>
+			<br><hr><br>License: <b>{{license}}</b><br>
+			<span style="font-size:12"><i>You must enter this license into your CryptoEditor client application in order to activate online synchronization.</i></span>
+		</td></tr>
+		{%endif%}
+		{%if expiration%}
+		<tr><td colspan=2>
+			<br><hr><br>
+		</td></tr>
+		<tr>
+			<td align="left" >
+				Expiration date: <b>{{expiration}}</b>
+			</td>
+			<td align="right" >
+				<input type="button" value="Buy more time"/>
+			</td>
+		</tr>
+		{%endif%}
 	</table>
 
 {% endblock %}
