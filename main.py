@@ -10,6 +10,8 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
 from basbrun import User
+from cryptoeditorsvc import CryptoEditorRegistration
+from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
 debug = False
@@ -240,6 +242,8 @@ class RegisterHandler(webapp.RequestHandler):
                      firstname=firstname,
                      lastname=lastname )
         user.put()
+        
+        registration = CryptoEditorRegistration() 
         
         #pageParams['key'] = user.key()        
         pageParams['key'] = user.regkey

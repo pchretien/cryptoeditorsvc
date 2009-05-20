@@ -9,3 +9,6 @@ class User(db.Model):
     lastname = db.StringProperty(default="")
     activated = db.IntegerProperty(default=0)
     created = db.DateTimeProperty(auto_now_add=True)
+    
+    
+    
