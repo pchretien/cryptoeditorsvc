@@ -51,7 +51,11 @@
     <td valign="top" bgcolor="ffffff" width="125">
 	    {%block menu%}
 	    	<p><a href="/">Home</a></p>
+	    	{%if email%}
+			<p><a href="/profile">Profile</a></p>
+			{%endif%}
 			<p><a href="/contact">Contact us</a></p>
+			
 		{% endblock %}
 	</td>
 	<td valign="top" bgcolor="ffffff" width="550">{% block content %}{% endblock %}</td>
