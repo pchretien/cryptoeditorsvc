@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CryptoEditorUserProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<status>{{user.status}}</status>
+<expiration>{{user.expiration.date}}</expiration>
+<encrypted_license>{%if user.encrypted_license%}{{user.encrypted_license}}{%endif%}</encrypted_license>
+</CryptoEditorUserProfile>

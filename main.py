@@ -459,6 +459,31 @@ class ContactHandler(webapp.RequestHandler):
         
         pageParams['message'] = "Your message has been sent with success."
         self.response.out.write( template.render('contact.html', pageParams))
+        
+class GetProfileHandler(webapp.RequestHandler):
+    def post(self):
+        email = self.request.get('email')
+        query = db.GqlQuery('SELECT * FROM User where email = :1', email)
+        user = query.get()
+        
+        pageParams = {'user': user}
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write( template.render('getprofile.xml', pageParams))
+        
+class PutLicenseHandler(webapp.RequestHandler):
+    def post(self):
+        email = self.request.get('email')
+        license = self.request.get('license')
+        encrypted_license = self.request.get('encrypted_license')
+        
+        query = db.GqlQuery('SELECT * FROM User where email = :1 and license = :2', email, license)
+        user = query.get()
+        user.encrypted_license = encrypted_license
+        user.put()
+        
+        pageParams = {'user': user}
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write( template.render('getprofile.xml', pageParams))
 
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -469,7 +494,9 @@ def main():
                                           ('/logout', LogoutHandler),
                                           ('/forgot', ForgotHandler),
                                           ('/reset', ResetHandler),
-                                          ('/contact', ContactHandler) ], debug=True)
+                                          ('/contact', ContactHandler),
+                                          ('/getprofile', GetProfileHandler),
+                                          ('/putlicense', PutLicenseHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)
 
