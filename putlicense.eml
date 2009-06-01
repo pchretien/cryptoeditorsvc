@@ -1,0 +1,8 @@
+Dear {%if user.firstname%}{{user.firstname}}{%else%}{{user.email}}{%endif%},
+
+You have successfully registered your CryptoEditor application. You can now use the synchronization service.
+
+Thank you,
+
+The CryptoEditor Team
+http://www.cryptoeditor.com

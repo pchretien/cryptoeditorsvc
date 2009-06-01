@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = False
+debug = True
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
@@ -462,29 +462,147 @@ class ContactHandler(webapp.RequestHandler):
         
 class GetProfileHandler(webapp.RequestHandler):
     def post(self):
+        pageParams = {}
+        
         email = self.request.get('email')
         query = db.GqlQuery('SELECT * FROM User where email = :1', email)
         user = query.get()
         
-        pageParams = {'user': user}
+        if user is None:
+            pageParams['error'] = "USER_DOES_NOT_EXIST"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        pageParams['user'] = user
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write( template.render('getprofile.xml', pageParams))
         
 class PutLicenseHandler(webapp.RequestHandler):
     def post(self):
+        pageParams = {}
+        
         email = self.request.get('email')
         license = self.request.get('license')
         encrypted_license = self.request.get('encrypted_license')
+        sendmail = self.request.get('sendmail')
         
         query = db.GqlQuery('SELECT * FROM User where email = :1 and license = :2', email, license)
         user = query.get()
+        
+        if user is None:
+            pageParams['error'] = "USER_DOES_NOT_EXIST"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
         user.encrypted_license = encrypted_license
+        user.status = 1;
         user.put()
         
-        pageParams = {'user': user}
+        if sendmail == 'yes':
+            msg = template.render('putlicense.eml', pageParams)            
+            mail.send_mail(sender='CryptoEditor <'+senderEmailAddress+'>',
+                           to=user.email,
+                           subject='CryptoEditor synchronization activated',
+                           body=msg)
+        
+        pageParams['user'] = user
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write( template.render('getprofile.xml', pageParams))
 
+class LoadHandler(webapp.RequestHandler):
+    def post(self):
+        email = self.request.get('email')
+        license = self.request.get('license')
+        plugin = self.request.get('plugin')
+        
+        query = db.GqlQuery('SELECT * FROM User where email = :1 and license = :2', email, license)
+        user = query.get()
+        
+        # Check user
+        if user is None:
+            pageParams['error'] = "USER_DOES_NOT_EXIST"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        # Check status
+        if user.status == 0:
+            pageParams['error'] = "USER_NOT_ACTIVATED"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        # Check expiration
+        if user.expiration + datetime.timedelta(days=1) < datetime.datetime.now():
+            pageParams['error'] = "USER_EXPIRED"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        query = db.GqlQuery('SELECT * FROM CryptoEditorData where user = :1 and plugin = :2', user, plugin)
+        dataObj = query.get()
+        
+        data = ''
+        if dataObj:
+            data = dataObj.data
+              
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write(data)
+        
+class SaveHandler(webapp.RequestHandler):
+    def post(self):
+        email = self.request.get('email')
+        license = self.request.get('license')
+        plugin = self.request.get('plugin')
+        data = self.request.get('data');
+        
+        query = db.GqlQuery('SELECT * FROM User where email = :1 and license = :2', email, license)
+        user = query.get()
+        
+        # Check user
+        if user is None:
+            pageParams['error'] = "USER_DOES_NOT_EXIST"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        # Check status
+        if user.status == 0:
+            pageParams['error'] = "USER_NOT_ACTIVATED"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        # Check expiration
+        if user.expiration + datetime.timedelta(days=1)< datetime.datetime.now():
+            pageParams['error'] = "USER_EXPIRED"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+        query = db.GqlQuery('SELECT * FROM CryptoEditorData where user = :1 and plugin = :2', user, plugin)
+        dataObj = query.get()
+        
+        # Check data
+        
+        if dataObj is None:
+            dataObj = CryptoEditorData(user=user, plugin=plugin, data=data)
+        else:
+            dataObj.data = data;
+            dataObj.tlu = datetime.datetime.now()
+            
+        dataObj.put() 
+        
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write( template.render('response.xml', pageParams))
+ 
+class PingHandler(webapp.RequestHandler):
+    def get(self):
+        pageParams = {}
+        self.response.out.write( template.render('ping.html', pageParams))
+      
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
                                           ('/login', LoginHandler),
@@ -496,7 +614,10 @@ def main():
                                           ('/reset', ResetHandler),
                                           ('/contact', ContactHandler),
                                           ('/getprofile', GetProfileHandler),
-                                          ('/putlicense', PutLicenseHandler) ], debug=True)
+                                          ('/putlicense', PutLicenseHandler),
+                                          ('/load', LoadHandler),
+                                          ('/save', SaveHandler),
+                                          ('/ping', PingHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)
 
