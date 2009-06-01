@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = True
+debug = False
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
@@ -594,7 +594,7 @@ class SaveHandler(webapp.RequestHandler):
             dataObj.tlu = datetime.datetime.now()
             
         dataObj.put() 
-        
+        pageParams = {}
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write( template.render('response.xml', pageParams))
  
