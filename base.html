@@ -24,11 +24,11 @@
 			</script>
 	</div>
 	<img src="images/bg.png" height=2 width=800/>
-	<table cellpadding=5 cellspacing=0 border=0 width=800 height=400 align="left" bgcolor="dddddd">
+	<table cellpadding=5 cellspacing=0 border=0 width=600 height=400 align="left" bgcolor="dddddd">
 
 	<tr height=50>
 		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
-		<td bgcolor="aaaaff" align="left" valign="bottom" width="550"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
+		<td bgcolor="aaaaff" align="left" valign="bottom" width="350"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
 		<td bgcolor="aaaaff" width="125" align="right"valign="top">
 		{%block login%}
 			{%if email%}
@@ -58,7 +58,7 @@
 			
 		{% endblock %}
 	</td>
-	<td valign="top" bgcolor="ffffff" width="550">{% block content %}{% endblock %}</td>
+	<td valign="top" bgcolor="ffffff" width="350">{% block content %}{% endblock %}</td>
 	<td valign="top" bgcolor="ffffff" width="125">
 		{% block right %}
 			{%if email%}
