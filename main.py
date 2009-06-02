@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = False
+debug = True
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
@@ -372,6 +372,7 @@ class ConfirmHandler(webapp.RequestHandler):
         
         email = self.request.get('email')
         key = self.request.get('key')
+        password = self.request.get('password')
         
         if email and len(email) > 0 :
             pageParams['reg'] = email 
@@ -385,8 +386,8 @@ class ConfirmHandler(webapp.RequestHandler):
         except:
             None
         
-        if user is None or (user.email != email and user.newemail != email):
-            pageParams['error'] = "Invalid email address or activation key"
+        if user is None or (user.email != email and user.newemail != email) or user.password != hash(password):
+            pageParams['error'] = "Invalid email address, activation key or password"
             self.response.out.write( template.render('confirm.html', pageParams))
             return
         
