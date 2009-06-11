@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = True
+debug = False
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
@@ -603,6 +603,25 @@ class PingHandler(webapp.RequestHandler):
     def get(self):
         pageParams = {}
         self.response.out.write( template.render('ping.html', pageParams))
+        
+class NewsHandler(webapp.RequestHandler):
+    def get(self):
+        pageParams = {}
+        self.response.out.write( template.render('news.html', pageParams))
+
+class News2Handler(webapp.RequestHandler):
+    def get(self):
+        pageParams = {}
+        self.response.out.write( template.render('news2.html', pageParams))
+        
+class MailJobHandler(webapp.RequestHandler):
+    def get(self):
+        mail.send_mail(sender='CryptoEditor <'+senderEmailAddress+'>',
+                           to="philippe.chretien@gmail.com",
+                           subject='MailJob',
+                           body="CryptoEditor MailJob Service")
+        
+        return
       
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -618,7 +637,10 @@ def main():
                                           ('/putlicense', PutLicenseHandler),
                                           ('/load', LoadHandler),
                                           ('/save', SaveHandler),
-                                          ('/ping', PingHandler) ], debug=True)
+                                          ('/ping', PingHandler),
+                                          ('/news', NewsHandler),
+                                          ('/news2', News2Handler),
+                                          ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)
 

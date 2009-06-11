@@ -10,25 +10,13 @@
     </script>
 </head>
 <body leftmargin=10 topmargin=10>
-	<div id="top-banner" style="display: none;">
-			<script type="text/javascript"><!--
-			google_ad_client = "pub-4675480524218132";
-			/* top secretquiz.com */
-			google_ad_slot = "4650202539";
-			google_ad_width = 728;
-			google_ad_height = 90;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-	</div>
+	
 	<img src="images/bg.png" height=2 width=800/>
-	<table cellpadding=5 cellspacing=0 border=0 width=600 height=400 align="left" bgcolor="dddddd">
+	<table cellpadding=5 cellspacing=0 border=0 width=800 height=400 align="left" bgcolor="dddddd">
 
 	<tr height=50>
 		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
-		<td bgcolor="aaaaff" align="left" valign="bottom" width="350"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
+		<td bgcolor="aaaaff" align="left" valign="bottom" width="550"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
 		<td bgcolor="aaaaff" width="125" align="right"valign="top">
 		{%block login%}
 			{%if email%}
@@ -54,11 +42,12 @@
 	    	{%if email%}
 			<p><a href="/profile">Profile</a></p>
 			{%endif%}
+			<p><a href="/news">News</a></p>
 			<p><a href="/contact">Contact us</a></p>
 			
 		{% endblock %}
 	</td>
-	<td valign="top" bgcolor="ffffff" width="350" rowspan="2">{% block content %}{% endblock %}</td>
+	<td valign="top" bgcolor="ffffff" width="550" rowspan="2">{% block content %}{% endblock %}</td>
 	<td valign="top" bgcolor="ffffff" width="125">
 		{% block right %}
 			{%if email%}
@@ -76,19 +65,7 @@
 
 		{% endblock %}
 		
-		<div align="center" style="display: none;">
-			<script type="text/javascript"><!--
-			google_ad_client = "pub-4675480524218132";
-			/* right long secretquiz.com */
-			google_ad_slot = "0286219537";
-			google_ad_width = 120;
-			google_ad_height = 600;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-		</div>
+		
 	</td>
 	</tr>
 	<tr>
@@ -109,19 +86,7 @@
     </tr>
     <tr>
 	    <td colspan=3 valign="top">
-	    	<div align="center" id="bottom-banner" style="display: none;">
-				<script type="text/javascript"><!--
-					google_ad_client = "pub-4675480524218132";
-					/* bottom secretquiz.com */
-					google_ad_slot = "2387230823";
-					google_ad_width = 728;
-					google_ad_height = 90;
-					//-->
-					</script>
-					<script type="text/javascript"
-					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-				</script>
-			</div>
+	    	
 		</td>
 	</tr>
     </table>

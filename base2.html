@@ -1,0 +1,57 @@
+<!-- Basic template by Philippe Chretien philippe.chretien@gmail.com -->
+
+<html>
+<head>
+    <title>{% block title %}CryptoEditor{% endblock %}</title>
+    <link href="/cryptoeditor.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+    {%block script%}
+    {%endblock%}
+    </script>
+</head>
+<body leftmargin=10 topmargin=10>
+	
+	<img src="images/bg.png" height=2 width=400/>
+	<table cellpadding=5 cellspacing=0 border=0 width=400 height=400 align="left" bgcolor="dddddd">
+
+	<tr height=50>
+		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
+		<td bgcolor="aaaaff" align="left" valign="bottom" width="150"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
+		<td bgcolor="aaaaff" width="125" align="right"valign="top">
+		{%block login%}
+			{%if email%}
+				<b><a href="/profile">
+				{%if fullname%}
+					{{fullname}}
+				{%else%}
+					{{email}}
+				{%endif%}
+				</b></a><br>
+				<a style="color:red;" href="/logout">(Logout)</a>
+			{%else%}
+				<b><a href="/register">Register</a><br></b>
+				<a href="/login">Login</a>
+			{%endif%}
+		{%endblock%}
+		</td>
+	</tr>
+    <tr>
+    	<td valign="top" bgcolor="ffffff" width="350" colspan="3">{% block content %}{% endblock %}</td>
+	</tr>
+	<tr height=25>
+	    <td colspan=3 valign="top" bgcolor="dddddd">
+		    {%block footer%}
+		    	<div align=center>
+		    		CryptoEditor v1.0 Copyright Deux Sortes Inc. (<a href="http://www.2sortes.com" target="_blank">2sortes.com</a>) 1999 - 2009
+		    	</div>
+		    {%endblock%}
+	    </td>
+    </tr>
+    <tr>
+	    <td colspan=3 valign="top">
+	    	
+		</td>
+	</tr>
+    </table>
+</body>
+</html>
