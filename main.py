@@ -607,13 +607,16 @@ class PingHandler(webapp.RequestHandler):
 class NewsHandler(webapp.RequestHandler):
     def get(self):
         pageParams = {}
+        base = self.request.get('base')
+        if base:
+            base = 'base' + base + '.html'
+        else:
+            base = 'base.html'
+            
+        pageParams['base'] = base
         self.response.out.write( template.render('news.html', pageParams))
 
-class News2Handler(webapp.RequestHandler):
-    def get(self):
-        pageParams = {}
-        self.response.out.write( template.render('news2.html', pageParams))
-        
+      
 class MailJobHandler(webapp.RequestHandler):
     def get(self):
         mail.send_mail(sender='CryptoEditor <'+senderEmailAddress+'>',
@@ -639,7 +642,6 @@ def main():
                                           ('/save', SaveHandler),
                                           ('/ping', PingHandler),
                                           ('/news', NewsHandler),
-                                          ('/news2', News2Handler),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)

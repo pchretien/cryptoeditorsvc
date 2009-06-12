@@ -1,6 +1,2 @@
 cron:
-- description: test job
-  url: /mailjob
-  schedule: every 24 hours
-  
  

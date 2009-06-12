@@ -11,11 +11,10 @@
 </head>
 <body leftmargin=10 topmargin=10>
 	
-	<table cellpadding=5 cellspacing=0 border=0 width=400 height=400 align="left" bgcolor="dddddd">
+	<table cellpadding=5 cellspacing=0 border=0 width=240 align="left" bgcolor="dddddd">
 	<tr height=50>
-		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/" target="_blank_"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
-		<td bgcolor="aaaaff" align="left" valign="bottom" width="150"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
-		<td bgcolor="aaaaff" width="125" align="right"valign="top">
+		<td bgcolor="aaaaff" width="120" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
+		<td bgcolor="aaaaff" width="120" align="right" valign="top">
 		{%block login%}
 			{%if email%}
 				<b><a href="/profile">
@@ -31,13 +30,16 @@
 				<a href="/login">Login</a>
 			{%endif%}
 		{%endblock%}
-		</td>
+		</td>		
+	</tr>
+	<tr>
+		<td bgcolor="ccccff" align="left" colspan="2">{%block top%}{%endblock%}</td>
 	</tr>
     <tr>
-    	<td valign="top" bgcolor="ffffff" width="400" colspan="3">{% block content %}{% endblock %}</td>
+    	<td valign="top" bgcolor="ffffff" width="240" colspan="2">{% block content %}{% endblock %}</td>
 	</tr>
-	<tr height=25>
-	    <td colspan=3 valign="top" bgcolor="dddddd">
+	<tr>
+	    <td colspan=2 valign="top" bgcolor="dddddd">
 		    {%block footer%}
 		    	<div align=center>
 		    		CryptoEditor v1.0 Copyright Deux Sortes Inc. (<a href="http://www.2sortes.com" target="_blank">2sortes.com</a>) 1999 - 2009
@@ -45,11 +47,6 @@
 		    {%endblock%}
 	    </td>
     </tr>
-    <tr>
-	    <td colspan=3 valign="top">
-	    	
-		</td>
-	</tr>
     </table>
 </body>
 </html>
