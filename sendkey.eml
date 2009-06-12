@@ -1,0 +1,12 @@
+Dear {%if firstnamevalue%}{{firstnamevalue}}{%else%}{{emailvalue}}{%endif%},
+
+Your account on CryptoEditor.com has successfully activated. Following is your CryptoEditor activation key. 
+
+To activate online synchronization, copy this key in the registration dialog of your CryptoEditor application. You can access the registration dialog box from the Help menu of the CryptoEditor application.
+
+Key: {{license}}
+
+Thank you,
+
+The CryptoEditor Team
+http://www.cryptoeditor.com

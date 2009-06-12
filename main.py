@@ -286,6 +286,9 @@ class ProfileHandler(webapp.RequestHandler):
         pageParams['firstnamevalue'] = user.firstname
         pageParams['lastnamevalue'] = user.lastname
         
+        pageParams['license'] = user.license
+        pageParams['expiration'] = user.expiration.date()
+        
         click = self.request.get('click')
         if click == 'profile':
             firstname = self.request.get('firstname')
@@ -400,7 +403,17 @@ class ConfirmHandler(webapp.RequestHandler):
         if pageParams.has_key('email'):
             pageParams['email'] = user.email
             
-        pageParams['message'] = "Email activated successfully."
+        pageParams['license'] = user.license
+        pageParams['emailvalue'] = user.email
+        pageParams['firstnamevalue'] = user.firstname
+        
+        msg = template.render('sendkey.eml', pageParams)            
+        mail.send_mail(sender='CryptoEditor <'+senderEmailAddress+'>',
+                       to=user.email,
+                       subject="CryptoEditor - Registration key",
+                       body=msg)
+        
+        pageParams['message'] = "Account activated successfully."
         self.response.out.write( template.render('confirm.html', pageParams))
         
 class ContactHandler(webapp.RequestHandler):
