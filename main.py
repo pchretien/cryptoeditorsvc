@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = False
+debug = True
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
@@ -510,6 +510,13 @@ class PutLicenseHandler(webapp.RequestHandler):
             self.response.out.write( template.render('response.xml', pageParams))
             return
         
+        if user.encrypted_license and len(user.encrypted_license) > 0 and encrypted_license != user.encrypted_license:
+            pageParams['error'] = "INVALID_PASSWORD"
+            self.response.headers['Content-Type'] = 'text/xml'
+            self.response.out.write( template.render('response.xml', pageParams))
+            return
+        
+            
         user.encrypted_license = encrypted_license
         user.status = 1;
         user.put()
