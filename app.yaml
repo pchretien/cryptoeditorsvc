@@ -17,5 +17,25 @@ handlers:
   static_files: static/images/favicon.ico
   upload: static/images/favicon.ico
 
+- url: /profile
+  script: main.py
+  secure: always
+  
+- url: /getprofile
+  script: main.py
+  secure: always
+  
+- url: /putlicense
+  script: main.py
+  secure: always
+  
+- url: /load
+  script: main.py
+  secure: always
+  
+- url: /save
+  script: main.py
+  secure: always
+  
 - url: /.*
   script: main.py

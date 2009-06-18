@@ -377,6 +377,9 @@ class ConfirmHandler(webapp.RequestHandler):
         key = self.request.get('key')
         password = self.request.get('password')
         
+        # For postback
+        pageParams['key'] = self.request.get('key')
+        
         if email and len(email) > 0 :
             pageParams['reg'] = email 
         if key and len(key) > 0 :
