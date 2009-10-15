@@ -14,7 +14,7 @@ from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
-debug = True
+debug = False
 senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
