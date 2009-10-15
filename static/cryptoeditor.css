@@ -37,8 +37,8 @@ img
 button, a.button {
     	color: #fff;
     	background-color: #aaaaff; /* full secondary color */
-    	/*margin: 0 0 0 1em;
-    	padding: .2em 8px;*/
+    	margin: 0 0 0 1em;
+    	padding: .2em 8px;
     	font-size: 1em;
     	border: 1px solid #dff2ff; /* light secondary color */
     	border-right-color: #888;
@@ -72,3 +72,4 @@ button, a.button {
     	background-color: #fff;
     	border-color: #ccc #999 #999 #ccc
     }
+    

@@ -71,8 +71,14 @@
 			<td align="left" >
 				Expiration date: <b>{{expiration}}</b>
 			</td>
-			<td align="right" >
-				<input type="button" value="Buy more time"/>
+			<td align="center" >
+				Buy more time
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="hosted_button_id" value="8925550">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
 			</td>
 		</tr>
 		{%endif%}

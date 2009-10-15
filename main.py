@@ -27,6 +27,8 @@ def checkLogin(handler):
         
         if len(user.firstname) > 0 or len(user.lastname) > 0:
             pageParams['fullname'] = user.firstname + " " + user.lastname
+            
+        pageParams['expiration'] = user.expiration.date()
     
     # DEBUG
     # Replace this block by the line in comment to remove user list from the 

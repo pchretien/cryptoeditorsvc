@@ -12,7 +12,7 @@
 <body leftmargin=10 topmargin=10>
 	
 	<img src="images/bg.png" height=2 width=800/>
-	<table cellpadding=5 cellspacing=0 border=0 width=800 height=400 align="left" bgcolor="dddddd">
+	<table cellpadding=5 cellspacing=0 border=0 width=800 height=600 align="left" bgcolor="dddddd">
 
 	<tr height=50>
 		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
@@ -24,7 +24,7 @@
 				{%if fullname%}
 					{{fullname}}
 				{%else%}
-					{{email}}
+					My Profile
 				{%endif%}
 				</b></a><br>
 				<a style="color:red;" href="/logout">(Logout)</a>
@@ -44,14 +44,16 @@
 			{%endif%}
 			<p><a href="/news">News</a></p>
 			<p><a href="/contact">Contact us</a></p>
-			<p><a herf="/download/cryptoeditor.msi">DOWNLOAD</a></p>
+			<p><a href="/download/cryptoeditor.msi" style="color:red">Download</a></p>
 		{% endblock %}
 	</td>
-	<td valign="top" bgcolor="ffffff" width="550" rowspan="2">{% block content %}{% endblock %}</td>
-	<td valign="top" bgcolor="ffffff" width="125">
+	<td valign="top" bgcolor="ffffff" width="500" rowspan="2">{% block content %}{% endblock %}</td>
+	<td align=left valign="top" bgcolor="ffffff" width="175">
 		{% block right %}
 			{%if email%}
-
+				{%if expiration%}
+					Your synchronization service expire<br><b>{{expiration}}</b>
+				{%endif%}
 			{%else%}
 				<form action="/login" method="post">
 					Email address<br>
