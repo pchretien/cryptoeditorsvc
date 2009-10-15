@@ -8,6 +8,10 @@ handlers:
 - url: /images/(.*\.(gif|png|jpg))
   static_files: static/images/\1
   upload: static/images/(.*\.(gif|png|jpg))
+  
+- url: /download/(.*\.(msi|zip))
+  static_files: static/download/\1
+  upload: static/download/(.*\.(msi|zip))
 
 - url: /cryptoeditor.css
   static_files: static/cryptoeditor.css
