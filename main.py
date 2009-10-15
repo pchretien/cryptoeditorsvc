@@ -656,7 +656,7 @@ def main():
                                           ('/login', LoginHandler),
                                           ('/register', RegisterHandler),
                                           ('/confirm', ConfirmHandler),
-                                          ('/profile', ProfileHandler),
+                                          ('/myprofile', ProfileHandler),
                                           ('/logout', LogoutHandler),
                                           ('/forgot', ForgotHandler),
                                           ('/reset', ResetHandler),

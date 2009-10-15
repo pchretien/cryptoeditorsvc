@@ -10,7 +10,7 @@
     </script>
 </head>
 <body leftmargin=10 topmargin=10>
-	
+
 	<img src="images/bg.png" height=2 width=800/>
 	<table cellpadding=5 cellspacing=0 border=0 width=800 height=600 align="left" bgcolor="dddddd">
 
@@ -20,7 +20,7 @@
 		<td bgcolor="aaaaff" width="125" align="right"valign="top">
 		{%block login%}
 			{%if email%}
-				<b><a href="/profile">
+				<b><a href="/myprofile">
 				{%if fullname%}
 					{{fullname}}
 				{%else%}
@@ -40,7 +40,7 @@
 	    {%block menu%}
 	    	<p><a href="/">Home</a></p>
 	    	{%if email%}
-			<p><a href="/profile">Profile</a></p>
+			<p><a href="/myprofile">Profile</a></p>
 			{%endif%}
 			<p><a href="/news">News</a></p>
 			<p><a href="/contact">Contact us</a></p>
@@ -66,8 +66,8 @@
 			{%endif%}
 
 		{% endblock %}
-		
-		
+
+
 	</td>
 	</tr>
 	<tr>
@@ -90,7 +90,7 @@
     </tr>
     <tr>
 	    <td colspan=3 valign="top">
-	    	
+
 		</td>
 	</tr>
     </table>
