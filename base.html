@@ -14,10 +14,10 @@
 	<img src="images/bg.png" height=2 width=800/>
 	<table cellpadding=5 cellspacing=0 border=0 width=800 height=600 align="left" bgcolor="dddddd">
 
-	<tr height=50>
-		<td bgcolor="aaaaff" width="125" align="left" valign="top">{%block header%}<a title="CryptoEditor" href="/"><span style="font-size:20">CryptoEditor</span><br><span style="font-size:10">Protect your data</span></a>{%endblock%}</td>
-		<td bgcolor="aaaaff" align="left" valign="bottom" width="550"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
-		<td bgcolor="aaaaff" width="125" align="right"valign="top">
+	<tr height=100>
+		<td bgcolor="aaaaff" width=125 align="left" valign="middle"><a title="CryptoEditor" href="/"><img src="images/logo.png"/></a></td>
+		<td bgcolor="aaaaff" width=500 align="left" valign="middle"><a title="CryptoEditor" href="/"><span style="font-size:35">CryptoEditor</span><br><span style="font-size:15">Protect your life ...</span></a></td>
+		<td bgcolor="aaaaff" width=175 align="right" valign="top">
 		{%block login%}
 			{%if email%}
 				<b><a href="/myprofile">
@@ -35,6 +35,12 @@
 		{%endblock%}
 		</td>
 	</tr>
+	<!--
+	<tr height=50>
+		<td bgcolor="aaaaff" width="125" align="left" valign="top"></td>
+		<td colspan=2 bgcolor="aaaaff" align="left" valign="bottom"><span style="font-size:15; margin-left: 10">{%block top%}{%endblock%}</span></td>
+	</tr>
+	-->
     <tr>
     <td valign="top" bgcolor="ffffff" width="125">
 	    {%block menu%}
@@ -44,7 +50,7 @@
 			{%endif%}
 			<p><a href="/news">News</a></p>
 			<p><a href="/contact">Contact us</a></p>
-			<p><a href="/download/cryptoeditor.msi" style="color:red">Download</a></p>
+			<p><a href="/download/cryptoeditor.msi">Download</a></p>
 		{% endblock %}
 	</td>
 	<td valign="top" bgcolor="ffffff" width="500" rowspan="2">{% block content %}{% endblock %}</td>
@@ -64,10 +70,7 @@
 					<a href="/forgot">Forgot your<br>password?</a>
 				</form>
 			{%endif%}
-
 		{% endblock %}
-
-
 	</td>
 	</tr>
 	<tr>
