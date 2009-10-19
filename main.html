@@ -14,16 +14,21 @@ Home
 				Millions of peoples are victim of identity theft every year. 
 				Protect your passwords, your credit cards, your software licenses ...
 				<div align=center>
-					<p><span style="font-size:30">Protect your life with <b>CryptoEditor</b>.</span>
+					<p><span style="font-size:30">Protect yourself with<br>CryptoEditor</span>
 				</div>
 			</td></tr>
 			<tr><td align="center">
 				<hr>
-				<p>CryptoEditor is FREE.
+				<p>CryptoEditor is FREE
 				<p><a href=href="/download/cryptoeditor.msi" class="button"><span style="color:red">Download now!</span></a>
-				<hr>
-				<p>Registered members gets online backup and synchronization.
-				<p><a href="/register" class="button"><span style="color:#3333ff">Start Your Free Trial</span></a>				
+				{%if email%}
+				{%else%}
+					<hr>
+					<div align=center>
+						<p>Register and get online backup, lifetime upgrades, specialized plugins and more.
+						<p><a href="/register" class="button"><span style="color:#3333ff">Start Your Free Trial</span></a>
+					</div>
+				{%endif%}				
 			</td></tr>
 			</table>
 		</td>

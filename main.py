@@ -631,7 +631,7 @@ class PingHandler(webapp.RequestHandler):
         
 class NewsHandler(webapp.RequestHandler):
     def get(self):
-        pageParams = {}
+        pageParams = checkLogin(self)
         base = self.request.get('base')
         if base:
             base = 'base' + base + '.html'
@@ -640,6 +640,11 @@ class NewsHandler(webapp.RequestHandler):
             
         pageParams['base'] = base
         self.response.out.write( template.render('news.html', pageParams))
+        
+class FaqHandler(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)        
+        self.response.out.write( template.render('faq.html', pageParams))
 
       
 class MailJobHandler(webapp.RequestHandler):
@@ -667,6 +672,7 @@ def main():
                                           ('/save', SaveHandler),
                                           ('/ping', PingHandler),
                                           ('/news', NewsHandler),
+                                          ('/faq', FaqHandler),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)

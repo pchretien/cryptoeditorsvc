@@ -16,7 +16,7 @@
 
 	<tr height=100>
 		<td bgcolor="aaaaff" width=125 align="left" valign="middle"><a title="CryptoEditor" href="/"><img src="images/logo.png"/></a></td>
-		<td bgcolor="aaaaff" width=500 align="left" valign="middle"><a title="CryptoEditor" href="/"><span style="font-size:35">CryptoEditor</span><br><span style="font-size:15">Protect your life ...</span></a></td>
+		<td bgcolor="aaaaff" width=500 align="left" valign="middle"><a title="CryptoEditor" href="/"><span style="font-size:35">CryptoEditor</span><br><span style="font-size:15">Protecting your identity ...</span></a></td>
 		<td bgcolor="aaaaff" width=175 align="right" valign="top">
 		{%block login%}
 			{%if email%}
@@ -45,12 +45,13 @@
     <td valign="top" bgcolor="ffffff" width="125">
 	    {%block menu%}
 	    	<p><a href="/">Home</a></p>
+	    	<p><a href="/download/cryptoeditor.msi">Download</a></p>
 	    	{%if email%}
 			<p><a href="/myprofile">Profile</a></p>
 			{%endif%}
 			<p><a href="/news">News</a></p>
-			<p><a href="/contact">Contact us</a></p>
-			<p><a href="/download/cryptoeditor.msi">Download</a></p>
+			<p><a href="/faq">FAQ</a></p>
+			<p><a href="/contact">Contact us</a></p>			
 		{% endblock %}
 	</td>
 	<td valign="top" bgcolor="ffffff" width="500" rowspan="2">{% block content %}{% endblock %}</td>
