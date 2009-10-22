@@ -60,7 +60,12 @@ class MainHandler(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)            
         self.response.out.write( template.render('main.html', pageParams ))
-        
+
+class SuccessHandler(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)            
+        self.response.out.write( template.render('success.html', pageParams ))
+                
 class LoginHandler(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)              
@@ -673,6 +678,7 @@ def main():
                                           ('/ping', PingHandler),
                                           ('/news', NewsHandler),
                                           ('/faq', FaqHandler),
+                                          ('/success', SuccessHandler),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)

@@ -68,11 +68,25 @@
 			<br><hr><br>
 		</td></tr>
 		<tr>
-			<td align="left" >
-				Expiration date: <b>{{expiration}}</b>
+			<td align="left" valign="top">
+				<b>Expiration date: <span style="color:red">{{expiration}}</span></b><br>
+				You can extend your subscription at any time. The amount of time you purchase will be added to the remaining time you actually have in your account.
 			</td>
-			<td align="center" >
-				Buy more time ...
+			<td align="center" valign="top">
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="hosted_button_id" value="9082567">
+				<table>
+				<tr><td><input type="hidden" name="on0" value="Subscription periods">Subscription periods</td></tr><tr><td><select name="os0">
+					<option value="1 Year">1 Year $14.95
+					<option value="2 Years">2 Years $24.95
+					<option value="3 Years">3 Years $29.95
+				</select> </td></tr>
+				</table>
+				<input type="hidden" name="currency_code" value="USD">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>				
 			</td>
 		</tr>
 		{%endif%}
