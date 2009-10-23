@@ -1,4 +1,5 @@
 
+import urllib
 import uuid
 import datetime
 import wsgiref.handlers
@@ -9,6 +10,7 @@ from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
+from google.appengine.api import urlfetch
 
 from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
@@ -31,7 +33,6 @@ def checkLogin(handler):
         pageParams['expiration'] = user.expiration.date()
     
     # DEBUG
-    # Replace this block by the line in comment to remove user list from the 
     # login and confirm pages
     if debug:
         query = db.GqlQuery('SELECT * FROM User ORDER BY email')
@@ -63,8 +64,28 @@ class MainHandler(webapp.RequestHandler):
 
 class SuccessHandler(webapp.RequestHandler):
     def get(self):
-        pageParams = checkLogin(self)            
-        self.response.out.write( template.render('success.html', pageParams ))
+        pageParams = checkLogin(self)   
+        
+#        for name in self.request.arguments():
+#            values = self.request.get_all(name)
+#            for val in values:
+#                self.response.out.write(name + ' = ' + val + '<br>')
+
+        tx = self.request.get('tx')
+        if tx:
+            url = "https://www.paypal.com/cgi-bin/webscr"
+            form_fields = {'tx':tx,
+                           'at':'_RQv379TRJgFvIUhpQ_XGusK4ET4GsTd3seyNk9trFYgm0tz6x7GqDjCGMO',
+                           'cmd':'_notify-synch'
+                           }
+            form_data = urllib.urlencode(form_fields)
+            result = urlfetch.fetch(url=url,
+                            payload=form_data,
+                            method=urlfetch.POST,
+                            headers={'Content-Type': 'application/x-www-form-urlencoded'})
+            
+            #self.response.out.write(result.content)                 
+            self.response.out.write( template.render('success.html', pageParams ))
                 
 class LoginHandler(webapp.RequestHandler):
     def get(self):
