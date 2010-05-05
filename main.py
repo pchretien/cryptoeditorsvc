@@ -9,7 +9,7 @@ from google.appengine.api import mail
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
-from google.appengine.api import memcache
+#from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 
 from basbrun import User
@@ -84,7 +84,7 @@ class SuccessHandler(webapp.RequestHandler):
                             method=urlfetch.POST,
                             headers={'Content-Type': 'application/x-www-form-urlencoded'})
             
-            #self.response.out.write(result.content)                 
+            self.response.out.write(result.content)                 
             self.response.out.write( template.render('success.html', pageParams ))
                 
 class LoginHandler(webapp.RequestHandler):
