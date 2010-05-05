@@ -565,6 +565,8 @@ class PutLicenseHandler(webapp.RequestHandler):
 
 class LoadHandler(webapp.RequestHandler):
     def post(self):
+        pageParams = {}
+        
         email = self.request.get('email')
         license = self.request.get('license')
         plugin = self.request.get('plugin')
@@ -605,6 +607,8 @@ class LoadHandler(webapp.RequestHandler):
         
 class SaveHandler(webapp.RequestHandler):
     def post(self):
+        pageParams = {}
+        
         email = self.request.get('email')
         license = self.request.get('license')
         plugin = self.request.get('plugin')
