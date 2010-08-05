@@ -16,6 +16,10 @@ handlers:
 - url: /cryptoeditor.css
   static_files: static/cryptoeditor.css
   upload: static/cryptoeditor.css
+  
+- url: /cryptoeditor2.css
+  static_files: static/cryptoeditor2.css
+  upload: static/cryptoeditor.css
 
 - url: /favicon.ico
   static_files: static/images/favicon.ico

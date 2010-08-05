@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{% block title %}CryptoEditor - Protecting your sensitive data ...{% endblock %}</title>
+<link href="/cryptoeditor2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    {%block script%}
+    {%endblock%}
+    </script>
+</head>
+
+<body>
+<div id="main">
+  {%block login%}
+  <p align="right">
+  	{%if email%}
+  		<b><a href="/myprofile">
+  		{%if fullname%}
+  			{{fullname}}
+  		{%else%}
+  			{{email}}
+  		{%endif%}
+  		</b></a> | <a style="color:red;" href="/logout">(Logout)</a>
+  	{%else%}
+  		<b><a href="/register">Register</a> | <a href="/login">Login</a>
+  	{%endif%}
+  </p>
+  {%endblock%}
+
+  <div id="header"></div>
+
+  {%block menu%}
+  <div id="nav">
+    <div id="nav_list" align="center"><a href="/">Home</a></div>
+    <!--
+    {%if email%}
+		<div id="nav_list" align="center"><a href="/profile">Profile</a></div>
+	{%endif%}
+	-->
+    <div id="nav_list" align="center"><a href="/download/cryptoeditor.msi">Download</a></div>
+    <div id="nav_list" align="center"><a href="/news">News</a></div>
+    <div id="nav_list" align="center"><a href="/faq">FAQ</a></div>
+    <div id="nav_list" align="center"><a href="/contact">Contact us</a></div>
+  </div>
+  {%endblock%}
+
+   <div id="content">
+      <div id="content_upper"></div>
+      	<div id="main_content">
+		  {% block content %}
+		  {%endblock%}
+		</div>
+	</div>
+
+  <div id="footer">
+    <div id="footer_link">
+      <div id="footer_list">Home</div>
+      <div id="footer_list">Download</div>
+      <div id="footer_list">News </div>
+      <div id="footer_list">FAQ</div>
+      <div id="footer_list">Contact us</div>
+      <div style="clear:both"></div>
+    </div>
+
+    <div id="copy_right">
+    <small>CryptoEditor v1.0 Copyright Deux Sortes Inc. (2sortes.com) 1999 - 2009</small>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+</body>
+</html>
