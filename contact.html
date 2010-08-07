@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "master.html" %}
 
 {%block top%}
 <a href="/">Home</a> > Contact
@@ -52,4 +52,39 @@
 		</form>
 	</td></tr>
 </table>
+<div id="login">
+	  <div id="login_cntent">
+		{%if email%}
+			{%if expiration%}
+				You are loged in. Your synchronization service expire <b>{{expiration}}</b>
+			{%endif%}
+		{%else%}
+		  <form action="/login" method="POST">
+			  <table width="217" height="95" border="0">
+				  <tr>
+					<td width="56" height="31">Email address<br>
+					<input type="text" name="email" size="16" value="{%if emailvalue%}{{emailvalue}}{%endif%}"/></td>
+				  </tr>
+				  <tr>
+					<td height="29">Password<br>
+					<input type="password" name="password" size="16"/></td>
+				  </tr>
+				  <tr>
+					<td><input type="submit" name="submit"  value="Login" /></td>
+				  </tr>
+			  </table>
+		  </form>
+		 {%endif%}
+	  </div>
+	</div>
+
+
+    <div id="ver_border"></div>
+
+
+    <div id="free_trial_bg">
+      <div id="trial_content" align="justify">Subscribe and get online backup, specialized plugins and online support. Register now to your three months <a href="/register">free trial.</a></div>
+    </div>
+    <div style="clear:both;"></div>
+
 {%endblock%}
