@@ -1,90 +1,48 @@
 {% extends "master.html" %}
 
-{%block top%}
-<a href="/">Home</a> > Contact
-{%endblock%}
-
 {%block content%}
-<table width="100%" cellpadding=10 border=0>
-	<tr><td>
-		<table cellspacing=0 cellpadding=2 width=100% border=0>
-			<tr>
-				<td width=50>
-					<img src="images/canadapost.jpg"/>
-				</td>
-				<td align=left valign="middle">
-					6561 12th Av.<br>
-					Montreal, QC<br>
-					Canada<br>
-					H1X 3A8<br>
-				</td>
-			</tr>
-			<tr>
-				<td width=50>
-					<img src="images/phone.jpg"/>
-				</td>
-				<td valign="middle">
-					tel. (514) 574-8499<br>
-					http://www.cryptoeditor.com
-				</td>
-			</tr>
+	<div id="content_header"> </div>
+	<div id="cont" align="justify">
+		<table width="100%" cellpadding=10 border=0>
+			<tr><td>
+				<table cellspacing=0 cellpadding=2 width=100% border=0>
+					<tr>
+						<td align=left valign="middle">
+							6561 12th Av.<br>
+							Montreal, QC<br>
+							Canada<br>
+							H1X 3A8<br>
+						</td>
+					</tr>
+					<tr>
+						<td valign="middle">
+							tel. (514) 574-8499<br>
+							<a href="http://www.cryptoeditor.com">http://www.cryptoeditor.com</a>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td>
+				<form action="" method=post>
+					{%if error%}
+						<p><span style="color:red">{{error}}</span></p>
+					{%endif%}
+					{%if message%}
+						<p><span style="color:green">{{message}}</span></p>
+					{%endif%}
+					Your name:<br>
+					<input type="text" size=32 name="fullname" {%if fullname%}value="{{fullname}}"{%endif%}/><br>
+					Your email address:<br>
+					<input type="text" size=32 name="email1" {%if email1%}value="{{email1}}"{%endif%}/><br>
+					Enter your email again:<br>
+					<input type="text" size=32 name="email2" {%if email2%}value="{{email2}}"{%endif%}/><br>
+					Subject:<br>
+					<input type="text" size=32 name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
+					Message:<br>
+					<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea><br>
+					<input type="submit" value="Send"/>
+				</form>
+			</td></tr>
 		</table>
-	</td></tr>
-	<tr><td>
-		<form action="" method=post>
-			{%if error%}
-				<p><span style="color:red">{{error}}</span></p>
-			{%endif%}
-			{%if message%}
-				<p><span style="color:green">{{message}}</span></p>
-			{%endif%}
-			Your name:<br>
-			<input type="text" size=32 name="fullname" {%if fullname%}value="{{fullname}}"{%endif%}/><br>
-			Your email address:<br>
-			<input type="text" size=32 name="email1" {%if email1%}value="{{email1}}"{%endif%}/><br>
-			Enter your email again:<br>
-			<input type="text" size=32 name="email2" {%if email2%}value="{{email2}}"{%endif%}/><br>
-			Subject:<br>
-			<input type="text" size=32 name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
-			Message:<br>
-			<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea><br>
-			<input type="submit" value="Send"/>
-		</form>
-	</td></tr>
-</table>
-<div id="login">
-	  <div id="login_cntent">
-		{%if email%}
-			{%if expiration%}
-				You are loged in. Your synchronization service expire <b>{{expiration}}</b>
-			{%endif%}
-		{%else%}
-		  <form action="/login" method="POST">
-			  <table width="217" height="95" border="0">
-				  <tr>
-					<td width="56" height="31">Email address<br>
-					<input type="text" name="email" size="16" value="{%if emailvalue%}{{emailvalue}}{%endif%}"/></td>
-				  </tr>
-				  <tr>
-					<td height="29">Password<br>
-					<input type="password" name="password" size="16"/></td>
-				  </tr>
-				  <tr>
-					<td><input type="submit" name="submit"  value="Login" /></td>
-				  </tr>
-			  </table>
-		  </form>
-		 {%endif%}
-	  </div>
 	</div>
-
-
-    <div id="ver_border"></div>
-
-
-    <div id="free_trial_bg">
-      <div id="trial_content" align="justify">Subscribe and get online backup, specialized plugins and online support. Register now to your three months <a href="/register">free trial.</a></div>
-    </div>
-    <div style="clear:both;"></div>
-
 {%endblock%}

@@ -3,57 +3,21 @@
 {%block content%}
 <div id="content_header"> </div>
 <div id="cont" align="justify">
-					<p><b><span style="color:#CC3333">Q. Is CryptoEditor FREE?</span></b><br>
-					<b>Yes</b>. The CryptoEditor software is FREE and will always be.<br>
-					<p><b><span style="color:#CC3333">Q. So what is this 9.99$ yearly subscription?</span></b><br>
-					R. CryptoEditor protect your data on your computer. By subscribing you get access to online backup, specialized plugins and online support.<br>
-					<p><b><span style="color:#CC3333">Q. Can you read the information we store in CryptoEditor?</span></b><br>
-					<b>No</b>. Your data is always encrypted on YOUR computer using industrial strength encryption algorithms.<br>
-					<p><b><span style="color:#CC3333">Q. Can someone with access to my hard drive can read my sensitive data?</span></b><br>
-					R. <b>No</b>. Your sensitive data is never saved in clear text on the hard drive. It is always encrypted before to be saved.<br>
-					<p><b><span style="color:#CC3333">Q. What if I lose my CryptoEditor password?</span></b><br>
-					There is NO way to recover your CryptoEditor password. Your password will NEVER be stored anywhere. You can use online services such as <a href="http://www.secretquiz.com" target="_blank_">SecretQUIZ</a> to keep your password safe.<br>
-					<!--
-					<p><b><span style="color:#CC3333">Q. ?</span></b><br>
-					R. <br>
-					-->
+	<p><b><span style="color:#CC3333">Q. Is CryptoEditor FREE?</span></b><br>
+	<b>Yes</b>. The CryptoEditor software is FREE and will always be.<br>
+	<p><b><span style="color:#CC3333">Q. So what is this 9.99$ yearly subscription?</span></b><br>
+	R. CryptoEditor protect your data on your computer. By subscribing you get access to online backup, specialized plugins and online support.<br>
+	<p><b><span style="color:#CC3333">Q. Can you read the information we store in CryptoEditor?</span></b><br>
+	<b>No</b>. Your data is always encrypted on YOUR computer using industrial strength encryption algorithms.<br>
+	<p><b><span style="color:#CC3333">Q. Can someone with access to my hard drive can read my sensitive data?</span></b><br>
+	R. <b>No</b>. Your sensitive data is never saved in clear text on the hard drive. It is always encrypted before to be saved.<br>
+	<p><b><span style="color:#CC3333">Q. What if I lose my CryptoEditor password?</span></b><br>
+	There is NO way to recover your CryptoEditor password. Your password will NEVER be stored anywhere. You can use online services such as <a href="http://www.secretquiz.com" target="_blank_">SecretQUIZ</a> to keep your password safe.<br>
+	<!--
+	<p><b><span style="color:#CC3333">Q. ?</span></b><br>
+	R. <br>
+	-->
 </div>
-<div style="clear:both;"></div>
-<div id="login">
-	  <div id="login_cntent">
-		{%if email%}
-			{%if expiration%}
-				You are loged in. Your synchronization service expire <b>{{expiration}}</b>
-			{%endif%}
-		{%else%}
-		  <form action="/login" method="POST">
-			  <table width="217" height="95" border="0">
-				  <tr>
-					<td width="56" height="31">Email address<br>
-					<input type="text" name="email" size="16" value="{%if emailvalue%}{{emailvalue}}{%endif%}"/></td>
-				  </tr>
-				  <tr>
-					<td height="29">Password<br>
-					<input type="password" name="password" size="16"/></td>
-				  </tr>
-				  <tr>
-					<td><input type="submit" name="submit"  value="Login" /></td>
-				  </tr>
-			  </table>
-		  </form>
-		 {%endif%}
-	  </div>
-	</div>
-
-
-    <div id="ver_border"></div>
-
-
-    <div id="free_trial_bg">
-      <div id="trial_content" align="justify">Subscribe and get online backup, specialized plugins and online support. Register now to your three months <a href="/register">free trial.</a></div>
-    </div>
-    <div style="clear:both;"></div>
-
 {%endblock%}
 
 
