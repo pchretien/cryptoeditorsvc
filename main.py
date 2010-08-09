@@ -666,7 +666,7 @@ class NewsHandler(webapp.RequestHandler):
         if base:
             base = 'base' + base + '.html'
         else:
-            base = 'base.html'
+            base = 'master.html'
             
         pageParams['base'] = base
         self.response.out.write( template.render('news.html', pageParams))
