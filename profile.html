@@ -1,13 +1,8 @@
 {% extends "master.html" %}
 
-{%block logo%}
-{%endblock%}
-
-{% block top %}
-<a href="/">Home</a> > Profile
-{%endblock%}
-
 {%block content%}
+<div id="content_header"> </div>
+<div id="cont" align="justify">
 	<table>
 		<tr>
 			<td colspan=2>
@@ -64,7 +59,7 @@
 		</td></tr>
 		{%endif%}
 	</table>
-
+</div>
 {% endblock %}
 
 {%block right%}
@@ -89,7 +84,7 @@
 				<input type="hidden" name="currency_code" value="USD">
 				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-				</form>	
+				</form>
 			</td>
 		</tr>
 	{%endif%}

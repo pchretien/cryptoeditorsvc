@@ -31,18 +31,16 @@
   <div id="header"></div>
 
   {%block menu%}
-  <div id="nav">
-    <div id="nav_list" align="center"><a href="/">Home</a></div>
-    <!--
-    {%if email%}
-		<div id="nav_list" align="center"><a href="/profile">Profile</a></div>
-	{%endif%}
-	-->
-    <div id="nav_list" align="center"><a href="/download/cryptoeditor.msi">Download</a></div>
-    <div id="nav_list" align="center"><a href="/news">News</a></div>
-    <div id="nav_list" align="center"><a href="/faq">FAQ</a></div>
-    <div id="nav_list" align="center"><a href="/contact">Contact us</a></div>
-  </div>
+	  <div id="nav">
+		<div id="nav_list" align="center"><a href="/">Home</a></div>
+		{%if email%}
+			<div id="nav_list" align="center"><a href="/myprofile">Profile</a></div>
+		{%endif%}
+		<div id="nav_list" align="center"><a href="/download/cryptoeditor.msi">Download</a></div>
+		<div id="nav_list" align="center"><a href="/news">News</a></div>
+		<div id="nav_list" align="center"><a href="/faq">FAQ</a></div>
+		<div id="nav_list" align="center"><a href="/contact">Contact us</a></div>
+	  </div>
   {%endblock%}
 
    <div id="content">

@@ -1,11 +1,8 @@
 {% extends "master.html" %}
 
-
-{%block top%}
-<a href="/">Home</a> > Password Reset
-{% endblock %}
-
 {%block content%}
+<div id="content_header"> </div>
+<div id="cont" align="justify">
 	{%if users|length%}
 		{%for user in users%}
 			<p>{{user.email}}/{{user.password}}:{{user.regkey}}</p>
@@ -46,4 +43,5 @@
 		</tr>
 	</table>
 	</form>
+</div>
 {%endblock%}
