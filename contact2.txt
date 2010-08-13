@@ -1,0 +1,41 @@
+{% extends "master.html" %}
+
+{%block content%}
+	<div id="content_header"> </div>
+	<div id="cont" align="justify">
+		
+<table border="1" align="center"   width="60%" cellspacing="0" cellpadding="3">
+
+
+<tr><td valign="top">6561 12th Av.<br>
+							Montreal, QC<br>
+							Canada<br>
+							H1X 3A8<br>
+tel. (514) 574-8499<br>
+<a href="http://www.cryptoeditor.com">http://www.cryptoeditor.com</a><br></td><td><form action="" method=post>
+					{%if error%}
+						<p><span style="color:red">{{error}}</span></p>
+					{%endif%}
+					{%if message%}
+						<p><span style="color:green">{{message}}</span></p>
+					{%endif%}
+					Your name:<br>
+					<input type="text" size=32 name="fullname" {%if fullname%}value="{{fullname}}"{%endif%}/><br>
+					Your email address:<br>
+					<input type="text" size=32 name="email1" {%if email1%}value="{{email1}}"{%endif%}/><br>
+					Enter your email again:<br>
+					<input type="text" size=32 name="email2" {%if email2%}value="{{email2}}"{%endif%}/><br>
+					Subject:<br>
+					<input type="text" size=32 name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
+					Message:<br>
+					<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea><br>
+					<input type="submit" value="Send"/>
+				</form></td></tr>
+
+
+
+
+
+</table>
+	</div>
+{%endblock%}

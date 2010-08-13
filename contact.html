@@ -2,28 +2,13 @@
 
 {%block content%}
 	<div id="content_header"> </div>
-	<div id="cont" align="justify">
-		<table width="100%" cellpadding=10 border=0>
-			<tr><td>
-				<table cellspacing=0 cellpadding=2 width=100% border=0>
-					<tr>
-						<td align=left valign="middle">
-							6561 12th Av.<br>
-							Montreal, QC<br>
-							Canada<br>
-							H1X 3A8<br>
-						</td>
-					</tr>
-					<tr>
-						<td valign="middle">
-							tel. (514) 574-8499<br>
-							<a href="http://www.cryptoeditor.com">http://www.cryptoeditor.com</a>
-						</td>
-					</tr>
-				</table>
-			</td></tr>
-			<tr><td>
-				<form action="" method=post>
+	<div>
+		<table width="864" border=0 align="center" cellpadding=0>
+			
+			<tr>
+			  <td width="20" align="left" valign="top">&nbsp;</td>
+			  <td width="150" align="left" valign="top">
+		  <form action="" method=post>
 					{%if error%}
 						<p><span style="color:red">{{error}}</span></p>
 					{%endif%}
@@ -39,10 +24,20 @@
 					Subject:<br>
 					<input type="text" size=32 name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
 					Message:<br>
-					<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea><br>
+					<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea>
+<br>
 					<input type="submit" value="Send"/>
-				</form>
-			</td></tr>
+				</form>			</td>
+			  <td width="2" align="left" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+		      <td width="430" align="left" valign="top"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address:</p>
+		        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6561 12th Av.<br />
+		          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Montreal, QC<br />
+		          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Canada<br />
+		          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;H1X 3A8<br />
+  <br />
+		          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tel.  (514) 574-8499<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cryptoeditor.com">http://www.cryptoeditor.com</a></p></td>
+		  </tr>
 		</table>
-	</div>
+</div>
 {%endblock%}

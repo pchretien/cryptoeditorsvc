@@ -24,6 +24,8 @@ a{
 	height: 265px;
 	width: 100%;
 	background-image: url(images/header.png);
+	background-repeat:no-repeat;
+	
 }
 #nav {
 	height: 35px;
@@ -33,6 +35,8 @@ a{
 }
 #content {
 	height: auto;
+	min-height: 480px;
+	max-height: 600px;
 	width: 100%;
 }
 #content_upper {
@@ -44,7 +48,11 @@ a{
 #main_content {
 	background-color: #272727;
 	height: 100%;
-	width: 100%;
+	width: 100%;	
+	min-height: 480px;
+	max-height: 600px;
+	overflow-x: hidden;
+	overflow-y: auto !important;
 }
 #content_header {
 	width: 316px;
@@ -52,7 +60,7 @@ a{
 	margin-left: auto;
 	font-family: MinimaSSK;
 	font-size: 24px;
-	color: #b6b824;
+	
 	text-decoration: underline;
 	padding-top: 15px;
 }
@@ -78,12 +86,14 @@ a{
 	font-family: MinimaSSK;
 	font-size: 18px;
 	height: 50px;
+	
 }
 #button {
 	height: 23px;
 	width: 79px;
 	float: right;
 	margin-right: 20px;
+	
 }
 #login {
 	float: left;
