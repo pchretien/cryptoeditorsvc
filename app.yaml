@@ -19,7 +19,7 @@ handlers:
   
 - url: /cryptoeditor2.css
   static_files: static/cryptoeditor2.css
-  upload: static/cryptoeditor.css
+  upload: static/cryptoeditor2.css
 
 - url: /favicon.ico
   static_files: static/images/favicon.ico
@@ -47,3 +47,4 @@ handlers:
   
 - url: /.*
   script: main.py
+  
