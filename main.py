@@ -685,6 +685,11 @@ class MailJobHandler(webapp.RequestHandler):
                            body="CryptoEditor MailJob Service")
         
         return
+        
+class StartNow(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)        
+        self.response.out.write( template.render('startnow.html', pageParams))
       
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -704,6 +709,7 @@ def main():
                                           ('/news', NewsHandler),
                                           ('/faq', FaqHandler),
                                           ('/success', SuccessHandler),
+                                          ('/startnow', StartNow),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)
