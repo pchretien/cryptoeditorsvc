@@ -3,14 +3,14 @@
 body{
 background-color:#363636;
 font-family:Arial, Helvetica, sans-serif;
-font-size:12px;
+font-size:14px;
 color:#FFFFFF;
 
 }
 
 a{
 	font-family: Arial;
-	color: #666666;
+	color: #AADD00;
 	font-size: 12px;
 	text-decoration: none;
 	
@@ -63,18 +63,18 @@ a{
 
 }
 #content_header {
-	width: 316px;
+	width: 516px;
 	margin-right: auto;
 	margin-left: auto;
-	font-family: MinimaSSK;
 	font-size: 20px;
+	text-align:center;
 	
 	//text-decoration: underline;
 	padding-top: 15px;
 	
 }
 #cont {
-	width: 416px;
+	width: 516px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 5px;
@@ -94,7 +94,6 @@ a{
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 10px;
-	font-family: MinimaSSK;
 	font-size: 18px;
 	height: 50px;
 	
@@ -199,7 +198,6 @@ s#footer_link {
 #copy_right {
 	margin-right: auto;
 	margin-left: auto;
-	width: 390px;
-	margin-top: 10px;
-
+	width: 516px;
+	margin-top: 5px;
 }

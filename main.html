@@ -2,47 +2,19 @@
 
 
 {% block content %}
-    <div id="content_header">Protect Your Sensitive Data</div>
-    <div id="cont" align="justify">Identity fraud is the fastest growing crime of the 21th century. Millions of peoples are victim of identity theft every year. Protect your passwords, your credit card numbers, your software licenses and more with CryptoEditor.</div>
-    <div id="hor_border"></div>
-	
-<!--
-    <div id="download">CryptoEditor is <span style="color:#FF0000;"><strong>FREE</strong></span> :
-      <div id="button"><a href="/download/cryptoeditor.msi"><img src="images/deonload_button.png" / border="0"></a></div>
-    </div>
+    <div id="content_header">Protect your identity</div>
+    <div id="cont" align="left">Identity fraud is the fastest growing crime of the 21th century. Millions of peoples are victim of identity fraud every year. Protect your passwords, your credit card numbers, your software licenses and more with CryptoEditor.</div>
 
-	<div id="login">
-	  <div id="login_cntent">
-		{%if email%}
-			{%if expiration%}
-				You are loged in. Your synchronization service expire <b>{{expiration}}</b>
-			{%endif%}
-		{%else%}
-		  <form action="/login" method="POST">
-			  <table width="217" height="95" border="0">
-				  <tr>
-					<td width="56" height="31"><span style="color:#000000">Email address</span><br>
-					<input type="text" name="email" size="30" value="{%if emailvalue%}{{emailvalue}}{%endif%}"/></td>
-				  </tr>
-				  <tr>
-					<td height="29"><span style="color:#000000">Password</span><br>
-					<input type="password" name="password" size="30"/></td>
-				  </tr>
-				  <tr>
-					<td><input type="submit" name="submit"  value="Login" /></td>
-				  </tr>
-			  </table>
-		  </form>
-		 {%endif%}
-	  </div>
+	<div id="content_header">Step #1 - Download CryptoEditor</div>
+	<div id="cont" align="left">CryptoEditor is FREE. All the information stored in CryptoEditor is encrypted on disk using industry grade encryption algorithms. There are many plugins available to save all kinds of data.</div>
+	<div align="center">
+		<p><a href="/download/cryptoeditor.msi"><img src="images/deonload_button.png" / border="0"></a></p>
+	</div>
+	<div id="content_header">Step #2 - Register to backup service</div>
+	<div id="cont" align="left">While CryptoEditor is FREE for local use, we offer a backup/synchronization service to make sure your data never get lost. The service allows you to access your data from any computer where CryptoEditor is installed. That way you can keep all your personnal data synchronized on all your computers.</div>
+	<div align="center">
+		<p><a href="/register"><img src="images/free-trial.png" / border="0"></a></p>
 	</div>
 
-
-    <div id="ver_border"></div>
-
-    <div id="free_trial_bg">
-      <div id="trial_content" align="justify">Subscribe and get online backup, specialized plugins and online support. Register now to your three months free trial.<a href="/register"><div id="button"><img src="images/free-trial.png" /border= "0"></div></a></div>
-    </div>
--->
-    <div style="clear:both;"></div>
+	<div style="clear:both;"></div>
   {%endblock%}

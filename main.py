@@ -690,6 +690,11 @@ class StartNow(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)        
         self.response.out.write( template.render('startnow.html', pageParams))
+        
+class How(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)        
+        self.response.out.write( template.render('how.html', pageParams))
       
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -710,6 +715,7 @@ def main():
                                           ('/faq', FaqHandler),
                                           ('/success', SuccessHandler),
                                           ('/startnow', StartNow),
+                                          ('/how', How),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)
