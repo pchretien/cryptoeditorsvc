@@ -2,14 +2,20 @@
 
 
 {% block content %}
-    <div id="cont" align="left">Local Storage:</div>
-    <div id="cont" align="left">All your data and your master password are encrypted on your computer and stored on your disk. The data is NEVER stored clear.</div>
+    <div id="cont" align="left"><span style="color:#CC3333">Data protection:</span></div>
+    <div id="cont" align="left">CryptoEditor uses industrial strength encryption algorithms to encrypt your data. The encryption algorithm uses your master password to generate a unique encryption key. The only way to restore your data is to provide this master password. Don't lose it, there are no ways to get it back. This password is not stores on your computer or on our servers.</div>
     <p>
-    <div id="cont" align="left">Server Backup:</div>
-	<div id="cont" align="left">Since the data is ALWAYS encrypted on your computer, there are no clear text data stored on the server. Your password is not stored on the server as well. If you lose your password, there is no way to get it back. The synchronization between the server and CryptoEditor is always performed on your computer.</div>
+    <div id="cont" align="left"><span style="color:#CC3333">Local Storage:</span></div>
+    <div id="cont" align="left">All your data and your master password are encrypted on your computer and stored on your disk. The data is NEVER stored or transfered in clear text. The level of security for your data is dependant to the strength of your password.</div>
     <p>
-    <div id="cont" align="left">Multiple Users:</div>
-	<div id="cont" align="left">Many user accounts can be created using the same installation of CryptoEditor. You will need one registration per user for the synchronization service.</div>
+    <div id="cont" align="left"><span style="color:#CC3333">Online Storage:</span></div>
+	<div id="cont" align="left">The data is ALWAYS encrypted on your computer, there are no clear text data stored on our online servers. Your password is not stored on the server as well. If you lose your password, there are no ways to get it back. The synchronization between the server and CryptoEditor is always performed on your computer and the encrypted data tranfered over a secure SSL connection (https).</div>
+    <p>
+    <div id="cont" align="left"><span style="color:#CC3333">Online synchronization:</span></div>
+	<div id="cont" align="left">When registered to our online synchronization service, you can access and modify your secret information from any computers where CryptoEditor is installed. The synchronization service keeps an up-to-date copy of your encrypted data on the server. The data stores on the server can never be seen by someone else than you.</div>
+    <p>
+    <div id="cont" align="left"><span style="color:#CC3333">Multiple Users:</span></div>
+	<div id="cont" align="left">CryptoEditor is designed to handle multiple users on the same computer. Each user data is encrypted using the master password of this user. You will need one registration per user for the synchronization service.</div>
     <p>
 	<div style="clear:both;"></div>
   {%endblock%}
