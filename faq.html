@@ -1,4 +1,32 @@
-{% extends "master.html" %}
+{% extends "tpage.html" %}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/works" class="active"><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
 
 {%block content%}
 <div id="content_header"> </div>

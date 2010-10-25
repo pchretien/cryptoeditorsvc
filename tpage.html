@@ -55,7 +55,7 @@
                 	{%block menu%}
                 	<ul class="art-menu">
                 		<li>
-                			<a href="/" class="active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+                			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
                 		</li>
                 		{%if email%}
                 		<li>
@@ -80,13 +80,6 @@
                 	</ul>
                 	{%endblock%}
                 </div>
-                <div class="art-header">
-					<div class="art-header-jpeg"></div>
-					<div class="art-logo">
-						<h1 id="name-text" class="art-logo-name"><a href="#">CryptoEditor</a></h1>
-						<div id="slogan-text" class="art-logo-text">Securing your life</div>
-					</div>
-                </div>
                 <div class="art-content-layout">
                     <div class="art-content-layout-row">
                         <div class="art-layout-cell art-content">
@@ -103,7 +96,9 @@
                                 <div class="art-post-body">
                             <div class="art-post-inner art-article">
                             	{% block content %}
-								{%endblock%}
+									<!-- article-content -->
+									<!-- /article-content -->
+                                {%endblock%}
                                 <div class="cleared"></div>
                             </div>
 
