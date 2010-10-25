@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+    <!--
+    Created by Artisteer v2.5.0.31067
+    Base template (without user's data) checked by http://validator.w3.org : "This page is valid XHTML 1.0 Transitional"
+    -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{% block title %}CryptoEditor{% endblock %}</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <!--[if IE 6]><link rel="stylesheet" href="style.ie6.css" type="text/css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="style.ie7.css" type="text/css" media="screen" /><![endif]-->
+
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+	    {%block script%}
+	    {%endblock%}
+    </script>
+</head>
+<body>
+<div id="art-page-background-simple-gradient">
+        <div id="art-page-background-gradient"></div>
+    </div>
+    <div id="art-main">
+    	{%block login%}
+    	<div class="art-sheet">
+	    	<div class="art-menu">
+	    	<div style="float:right;">
+	    		{%if email%}
+					<li><a href="/myprofile"><span class="t">{%if fullname%}{{fullname}}{%else%}{{email}}{%endif%}</span></a></li>
+					<li><a href="/logout"><span class="t">Logout</span></a></li>
+				{%else%}
+					<li><a href="/register"><span class="t">Register</span></a></li>
+					<li><a href="/login"><span class="t">Login</span></a></li>
+				{%endif%}
+			</div>
+	    	</div>
+		</div>
+		{%endblock%}
+        <div class="art-sheet">
+            <div class="art-sheet-tl"></div>
+            <div class="art-sheet-tr"></div>
+            <div class="art-sheet-bl"></div>
+            <div class="art-sheet-br"></div>
+            <div class="art-sheet-tc"></div>
+            <div class="art-sheet-bc"></div>
+            <div class="art-sheet-cl"></div>
+            <div class="art-sheet-cr"></div>
+            <div class="art-sheet-cc"></div>
+            <div class="art-sheet-body">
+                <div class="art-nav">
+                	<div class="l"></div>
+                	<div class="r"></div>
+                	{%block menu%}
+                	<ul class="art-menu">
+                		<li>
+                			<a href="/" class="active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+                		</li>
+                		{%if email%}
+                		<li>
+							<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+                		</li>
+                		{%endif%}
+                		<li>
+                			<a href="/works"><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+                			<ul>
+                				<li><a href="/videos">Videos</a></li>
+                				<li><a href="/screenshots">Screenshots</a></li>
+                				<li><a href="/faq">FAQ</a></li>
+                			</ul>
+                		</li>
+                		<li>
+                			<a href="#"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+                			<ul>
+								<li><a href="/about">About</a></li>
+								<li><a href="/contact">Contact us</a></li>
+                			</ul>
+                		</li>
+                	</ul>
+                	{%endblock%}
+                </div>
+                <div class="art-header">
+					<div class="art-header-jpeg"></div>
+					<div class="art-logo">
+						<h1 id="name-text" class="art-logo-name"><a href="#">CryptoEditor</a></h1>
+						<div id="slogan-text" class="art-logo-text">Securing your life</div>
+					</div>
+                </div>
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content">
+                            <div class="art-post">
+                                <div class="art-post-tl"></div>
+                                <div class="art-post-tr"></div>
+                                <div class="art-post-bl"></div>
+                                <div class="art-post-br"></div>
+                                <div class="art-post-tc"></div>
+                                <div class="art-post-bc"></div>
+                                <div class="art-post-cl"></div>
+                                <div class="art-post-cr"></div>
+                                <div class="art-post-cc"></div>
+                                <div class="art-post-body">
+                            <div class="art-post-inner art-article">
+                                            <h2 class="art-postheader">
+                                                Protect Your Identity
+                                            </h2>
+                                            <div class="art-postcontent">
+                                                <!-- article-content -->
+												{% block content %}
+
+
+												{%endblock%}
+                                                <!-- /article-content -->
+                                            </div>
+                                            <div class="cleared"></div>
+                            </div>
+
+                            		<div class="cleared"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="cleared"></div>
+                <div class="art-footer">
+                    <div class="art-footer-t"></div>
+                    <div class="art-footer-l"></div>
+                    <div class="art-footer-b"></div>
+                    <div class="art-footer-r"></div>
+                    <div class="art-footer-body">
+                        <!--<a href="#" class="art-rss-tag-icon" title="RSS"></a>-->
+                        <div class="art-footer-text">
+                            <!--<p><a href="#">Contact Us</a> | <a href="#">Terms of Use</a> | <a href="#">Trademarks</a> | <a href="#">Privacy Statement</a></p>-->
+                            <p>Copyright &copy; 2010 <a href="http://www.2sortes.com" target="_blank_">Deux Sortes Inc.</a> All Rights Reserved.</p>
+                        </div>
+                		<div class="cleared"></div>
+                    </div>
+                </div>
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        <div class="cleared"></div>
+        <p class="art-page-footer"></p>
+    </div>
+
+</body>
+</html>

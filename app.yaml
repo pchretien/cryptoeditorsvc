@@ -20,6 +20,22 @@ handlers:
 - url: /cryptoeditor2.css
   static_files: static/cryptoeditor2.css
   upload: static/cryptoeditor2.css
+  
+- url: /style.css
+  static_files: static/style.css
+  upload: static/style.css
+
+- url: /style.ie6.css
+  static_files: static/style.ie6.css
+  upload: static/style.ie6.css
+
+- url: /style.ie7.css
+  static_files: static/style.ie7.css
+  upload: static/style.ie7.css
+  
+- url: /script.js
+  static_files: static/script.js
+  upload: static/script.js
 
 - url: /favicon.ico
   static_files: static/images/favicon.ico
