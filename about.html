@@ -1,0 +1,35 @@
+{% extends "tpage.html" %}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/how" ><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="/about" class="active"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
+
+{% block content %}
+<div align=justify>
+Deux Sortes is a privately-held technology company based in Montreal, Québec, Canada. The company was founded by Philippe Chrétien, an independent software engineer. Among its areas of specialization is the development of information security solutions, custom software programming, and consulting. Deux Sortes offers a comprehensive range of solutions and services to help businesses protect their valuable assets. Currently, the company is focused on the CryptoTools project, which offers software developers a unique combination of encryption capabilities and a support for many programming languages and major OS as a single package.
+</div>
+{%endblock%}

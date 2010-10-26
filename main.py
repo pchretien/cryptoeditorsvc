@@ -115,7 +115,7 @@ class LoginHandler(webapp.RequestHandler):
             
         self.session = Session()
         self.session['user'] = user.key()
-        self.redirect("/")
+        self.redirect("/myprofile")
 
 class LogoutHandler(webapp.RequestHandler):
     def get(self):
@@ -695,6 +695,11 @@ class How(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)        
         self.response.out.write( template.render('how.html', pageParams))
+
+class About(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)        
+        self.response.out.write( template.render('about.html', pageParams))
       
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -716,6 +721,7 @@ def main():
                                           ('/success', SuccessHandler),
                                           ('/startnow', StartNow),
                                           ('/how', How),
+										  ('/about', About),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)

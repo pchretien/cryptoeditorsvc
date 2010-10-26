@@ -1,8 +1,35 @@
-{% extends "master.html" %}
+{% extends "tpage.html" %}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile" class="active"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/how"><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="/about"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
 
 {%block content%}
-<div id="content_header"> </div>
-<div id="cont" align="justify">
+<div id="cont" align="center">
 	<table>
 		<tr>
 			<td colspan=2>
@@ -53,23 +80,19 @@
 		</tr>
 		</form>
 		{%if license%}
-		<tr><td colspan=2>
+		<tr><td colspan=2 width=400>
 			<br><hr><br>License: <b>{{license}}</b><br>
 			<span style="font-size:12"><i>You must enter this license into your CryptoEditor client application in order to activate online synchronization.</i></span>
 		</td></tr>
 		{%endif%}
-	</table>
-</div>
-{% endblock %}
-
-{%block right%}
-<table>
-	{%if expiration%}
+{%if expiration%}
+		<tr><td><br></td></tr>
 		<tr>
-			<td align="left" valign="top">
-				<b>Expiration date:<br><span style="color:red">{{expiration}}</span></b><br>
-				You can extend your subscription at any time. The amount of time you purchase will be added to the remaining time you actually have in your account.
+			<td align="left" valign="top" colspan=2 width=400>
 				<hr>
+				<b>Expiration date:</b><span style="color:red"> {{expiration}}</span><br><br>
+				You can extend your subscription at any time. The amount of time you purchase will be added to the remaining time you actually have in your account.
+				<br><br>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
 				<input type="hidden" name="hosted_button_id" value="9082567">
@@ -89,4 +112,5 @@
 		</tr>
 	{%endif%}
 </table>
+</div>
 {% endblock %}

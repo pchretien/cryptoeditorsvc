@@ -1,7 +1,6 @@
-{% extends "master.html" %}
+{% extends "tpage.html" %}
 
 {%block content%}
-<div id="content_header"> </div>
 <div id="cont" align="justify">
 	{%if users|length%}
 		{%for user in users%}
@@ -11,6 +10,7 @@
 	{%endif%}
 
 	<form action="" method="post">
+	<div align=center>
 	<table>
 		<tr>
 			<td colspan=2>
@@ -42,6 +42,7 @@
 			<td colspan="2" align="right"><input type="submit" value="Update Password"/></td>
 		</tr>
 	</table>
+	</div>
 	</form>
 </div>
 {%endblock%}

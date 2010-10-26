@@ -1,9 +1,36 @@
-{% extends "master.html" %}
+{% extends "tpage.html" %}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/how"><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="/about" class="active"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
 
 {%block content%}
-	<div id="content_header"> </div>
-	<div>
-		<table width="864" border=0 align="center" cellpadding=0>
+	<div align=center>
+		<table>
 			
 			<tr>
 			  <td width="20" align="left" valign="top">&nbsp;</td>
@@ -17,8 +44,7 @@
 		         tel.  (514) 574-8499<br />
 <a href="http://www.cryptoeditor.com">http://www.cryptoeditor.com</a></p>
 		  			</td>
-			  <td width="2" align="left" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-              <td width="25" align="left">&nbsp;</td>
+			  <td width="25" align="left">&nbsp;</td>
 		      <td width="430" align="left" valign="top"><form action="" method=post>
 					{%if error%}
 						<p><span style="color:red">{{error}}</span></p>
