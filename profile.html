@@ -81,7 +81,7 @@
 		</form>
 		{%if license%}
 		<tr><td colspan=2 width=400>
-			<br><hr><br>License: <b>{{license}}</b><br>
+			<br><hr><br><b>License: </b><span style="color:red">{{license}}</span><br>
 			<span style="font-size:12"><i>You must enter this license into your CryptoEditor client application in order to activate online synchronization.</i></span>
 		</td></tr>
 		{%endif%}
@@ -91,7 +91,8 @@
 			<td align="left" valign="top" colspan=2 width=400>
 				<hr>
 				<b>Expiration date:</b><span style="color:red"> {{expiration}}</span><br><br>
-				You can extend your subscription at any time. The amount of time you purchase will be added to the remaining time you actually have in your account.
+<!--				
+You can extend your subscription at any time. The amount of time you purchase will be added to the remaining time you actually have in your account.
 				<br><br>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
@@ -108,6 +109,7 @@
 				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 				</form>
+-->
 			</td>
 		</tr>
 	{%endif%}
