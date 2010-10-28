@@ -17,7 +17,7 @@ from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
 debug = False
-senderEmailAddress = '<CryptoEditor>philippe.chretien@gmail.com'
+senderEmailAddress = 'philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
 def checkLogin(handler):
