@@ -17,7 +17,7 @@ from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
 
 debug = False
-senderEmailAddress = 'philippe.chretien@gmail.com'
+senderEmailAddress = '<CryptoEditor>philippe.chretien@gmail.com'
 supportEmailAddress = 'philippe.chretien@gmail.com'
 
 def checkLogin(handler):
@@ -66,11 +66,6 @@ class SuccessHandler(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)   
         
-#        for name in self.request.arguments():
-#            values = self.request.get_all(name)
-#            for val in values:
-#                self.response.out.write(name + ' = ' + val + '<br>')
-
         tx = self.request.get('tx')
         if tx:
             url = "https://www.paypal.com/cgi-bin/webscr"
@@ -83,8 +78,52 @@ class SuccessHandler(webapp.RequestHandler):
                             payload=form_data,
                             method=urlfetch.POST,
                             headers={'Content-Type': 'application/x-www-form-urlencoded'})
+                        
+            strResult = urllib.unquote(result.content)
+                    
+            dict = {}         
+            lines = strResult.splitlines()
+            for line in lines:
+                tokens = line.split('=')
+                if len(tokens) > 1:
+                    dict[tokens[0]] = tokens[1]
+                if len(tokens) == 1:
+                    dict[tokens[0]] = 1
             
-            self.response.out.write(result.content)                 
+            pageParams['result'] = strResult
+            
+            if dict['SUCCESS'] != 1:
+                pageParams['failed'] = 1 
+                self.response.out.write( template.render('success.html', pageParams ))
+                return
+                
+            if dict['payment_status'] != 'Completed':
+                pageParams['error'] = 'The payment did not complete properly! '  
+                self.response.out.write( template.render('success.html', pageParams ))
+                return
+            
+            period = int(dict['option_selection1'][0])        
+            strEmail = dict['option_selection2']
+            
+            query = db.GqlQuery('SELECT * FROM User where email = :1', strEmail)
+            user = query.get()
+            
+            if user is None:
+                pageParams['error'] = 'User ', strEmail, ' does not exist!'  
+                self.response.out.write( template.render('success.html', pageParams ))
+                return
+                
+            pageParams['old_expiration'] = user.expiration.date()
+            user.expiration = user.expiration + datetime.timedelta(days=period*366)
+            user.put()
+            
+            pageParams['success'] = 1       
+            pageParams['new_expiration'] = user.expiration.date()
+            pageParams['email'] = user.email
+                        
+            msg = template.render('success.eml', pageParams)            
+            mail.send_mail(sender=senderEmailAddress,to=supportEmailAddress,subject="CryptoEditor transaction",body=msg)
+        
             self.response.out.write( template.render('success.html', pageParams ))
                 
 class LoginHandler(webapp.RequestHandler):

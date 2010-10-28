@@ -7,8 +7,23 @@
 			<td>
 				<table width="100%" border=0 cellpadding="5">
 				<tr><td align=left>
-					<p>Thank you for your purchase.
-					<p>We are working at automating this process. Until then, please allow a maximum of 48 hours to process your demand. If you have any question please, feel free to <a href="/contact">contact us</a>.
+					<p>
+					{%if failed%}
+						The transaction failed!<br><br>
+						{{result}}
+					{%endif%}
+					{%if error%}
+						The transaction returned with an error!<br><br>
+						{{error}}
+					{%endif%}
+					{%if success%}
+						The transaction succeeded!<br><br>
+						The old expiration date was: {{old_expiration}}<br>
+						The new expiration date is: {{new_expiration}}<br>
+					{%endif%}
+					</p>
+					<hr>
+					<p>If you have any question, please, feel free to <a href="/contact">contact us</a>.
 				</td></tr>
 				</table>
 			</td>

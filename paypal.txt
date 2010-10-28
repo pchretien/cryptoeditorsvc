@@ -39,4 +39,5 @@ payment_gross=0.99
 shipping=0.00
 
 https://cryptoeditor.appspot.com/success?tx=7SV64648L5940384T&st=Completed&amt=0.99&cc=USD&cm=&item_number=
+http://localhost:8080/success?tx=7SV64648L5940384T&st=Completed&amt=0.99&cc=USD&cm=&item_number=
 
