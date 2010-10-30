@@ -569,6 +569,7 @@ class PutLicenseHandler(webapp.RequestHandler):
         email = self.request.get('email')
         license = self.request.get('license')
         encrypted_license = self.request.get('encrypted_license')
+        encrypted_license_old = self.request.get('encrypted_license_old')
         sendmail = self.request.get('sendmail')
         
         query = db.GqlQuery('SELECT * FROM User where email = :1 and license = :2', email, license)
@@ -580,12 +581,18 @@ class PutLicenseHandler(webapp.RequestHandler):
             self.response.out.write( template.render('response.xml', pageParams))
             return
         
-        if user.encrypted_license and len(user.encrypted_license) > 0 and encrypted_license != user.encrypted_license:
-            pageParams['error'] = "INVALID_PASSWORD"
-            self.response.headers['Content-Type'] = 'text/xml'
-            self.response.out.write( template.render('response.xml', pageParams))
-            return
-        
+        # If a license already exist in the database
+        if user.encrypted_license and len(user.encrypted_license) > 0:
+            if len(encrypted_license_old) > 0 and encrypted_license_old != user.encrypted_license:
+                pageParams['error'] = "INVALID_PASSWORD"
+                self.response.headers['Content-Type'] = 'text/xml'
+                self.response.out.write( template.render('response.xml', pageParams))
+                return            
+            if len(encrypted_license_old) == 0 and encrypted_license != user.encrypted_license:
+                pageParams['error'] = "INVALID_PASSWORD"
+                self.response.headers['Content-Type'] = 'text/xml'
+                self.response.out.write( template.render('response.xml', pageParams))
+                return        
             
         user.encrypted_license = encrypted_license
         user.status = 1;
