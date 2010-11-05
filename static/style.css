@@ -1,6 +1,6 @@
 /* begin Page */
 
-/* Generated with Artisteer version 2.5.0.31067, file checksum is 7B820062. */
+/* Generated with Artisteer version 2.5.0.31067, file checksum is 944C0374. */
 
 body, p
 {
@@ -638,39 +638,39 @@ div.art-header-jpeg
   display: block;
   position: absolute;
   left: 10px;
-  top: 20px;
-  width: 780px;
+  top: 30px;
+  width: 210px;
 }
 
 h1.art-logo-name
 {
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 h1.art-logo-name, h1.art-logo-name a, h1.art-logo-name a:link, h1.art-logo-name a:visited, h1.art-logo-name a:hover
 {
-  font-size: 40px;
+  font-size: 32px;
   text-decoration: none;
   padding: 0;
   margin: 0;
-  color: #A8DE6E !important;
+  color: #DFF3C9 !important;
 }
 
 .art-logo-text
 {
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .art-logo-text, .art-logo-text a
 {
   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 13px;
   padding: 0;
   margin: 0;
-  color: #CCD7CD !important;
+  color: #FFFFFF !important;
 }
 /* end Logo */
 
