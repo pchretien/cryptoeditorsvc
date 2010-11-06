@@ -1,43 +1,4 @@
 /* begin Box, Sheet */
-.art-sheet-tl
-{
-  clip: rect(auto 5px 5px auto);
-}
-
-.art-sheet-tr
-{
-  clip: rect(auto auto 5px 5px);
-}
-
-.art-sheet-bl
-{
-  clip: rect(5px 5px auto auto);
-}
-
-.art-sheet-br
-{
-  clip: rect(5px auto auto 5px);
-}
-
-.art-sheet-tc
-{
-  clip: rect(auto auto 5px auto);
-}
-
-.art-sheet-bc
-{
-  clip: rect(5px auto auto auto);
-}
-
-.art-sheet-cr
-{
-  clip: rect(auto auto auto 5px);
-}
-
-.art-sheet-cl
-{
-  clip: rect(auto 5px auto auto);
-}
 
 .art-sheet-body
 {
@@ -48,7 +9,7 @@
 /* begin Menu */
 .art-nav .r
 {
-  clip: rect(auto auto auto 795px);
+  clip: rect(auto auto auto 800px);
 }
 
 /* end Menu */
@@ -134,14 +95,6 @@ div.art-content-layout
   height: 1%;
 }
 /* end PostContent */
-
-/* begin Footer */
-.art-footer-r
-{
-  clip: rect(auto auto auto 5px);
-}
-
-/* end Footer */
 
 /* begin LayoutCell, content */
 div.art-content

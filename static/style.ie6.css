@@ -1,6 +1,6 @@
 /* begin Page */
 
-/* Generated with Artisteer version 2.5.0.31067, file checksum is 2A27F3A1. */
+/* Generated with Artisteer version 2.5.0.31067, file checksum is 71C152DA. */
 
 
 img
@@ -20,81 +20,11 @@ img
 {
   position: static;
 }
-
-.art-sheet-tr, .art-sheet-tl, .art-sheet-br, .art-sheet-bl, .art-sheet-tc, .art-sheet-bc,.art-sheet-cr, .art-sheet-cl
-{
-  font-size: 1px;
-  background: none;
-}
-
-.art-sheet-tr, .art-sheet-tl, .art-sheet-br, .art-sheet-bl
-{
-  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + artGetStyleUrl()+"images/sheet_s.png',sizingMethod='scale')");
-}
-
-.art-sheet-tl
-{
-  clip: rect(auto 5px 5px auto);
-}
-
-.art-sheet-tr
-{
-  left: expression(this.parentNode.offsetWidth-10+'px');
-  clip: rect(auto auto 5px 5px);
-}
-
-.art-sheet-bl
-{
-  top: expression(this.parentNode.offsetHeight-10+'px');
-  clip: rect(5px 5px auto auto);
-}
-
-.art-sheet-br
-{
-  top: expression(this.parentNode.offsetHeight-10+'px');
-  left: expression(this.parentNode.offsetWidth-10+'px');
-  clip: rect(5px auto auto 5px);
-}
-
-.art-sheet-tc, .art-sheet-bc
-{
-  width: expression(this.parentNode.offsetWidth-10+'px');
-  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + artGetStyleUrl()+"images/sheet_h.png',sizingMethod='scale')");
-}
-
-.art-sheet-tc
-{
-  clip: rect(auto auto 5px auto);
-}
-
-.art-sheet-bc
-{
-  top: expression(this.parentNode.offsetHeight-10+'px');
-  clip: rect(5px auto auto auto);
-}
-
-.art-sheet-cr, .art-sheet-cl
-{
-  height: expression(this.parentNode.offsetHeight-10+'px');
-  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + artGetStyleUrl()+"images/sheet_v.png',sizingMethod='scale')");
-}
-
-.art-sheet-cr
-{
-  left: expression(this.parentNode.offsetWidth-10+'px');
-  clip: rect(auto auto auto 5px);
-}
-
-.art-sheet-cl
-{
-  clip: rect(auto 5px auto auto);
-}
-
 .art-sheet-cc
 {
   font-size: 1px;
-  width: expression(this.parentNode.offsetWidth-10+'px');
-  height: expression(this.parentNode.offsetHeight-10+'px');
+  width: expression(this.parentNode.offsetWidth+'px');
+  height: expression(this.parentNode.offsetHeight+'px');
   background: none;
   behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + artGetStyleUrl()+"images/sheet_c.png',sizingMethod='scale')");
 }
@@ -188,13 +118,13 @@ img
 
 .art-nav .l
 {
-  width: expression(this.parentNode.offsetWidth-5+'px');
+  width: expression(this.parentNode.offsetWidth-0+'px');
 }
 
 .art-nav .r
 {
   left: expression(this.parentNode.offsetWidth-800+'px');
-  clip: rect(auto auto auto 795px);
+  clip: rect(auto auto auto 800px);
 }
 
 /* end Menu */
@@ -474,25 +404,11 @@ blockquote,
 .art-footer-b 
 {
   top: expression(this.parentNode.offsetHeight-50+'px');
-  width: expression(this.parentNode.offsetWidth-10+'px');
+  width: expression(this.parentNode.offsetWidth-0+'px');
   zoom: 1;
   font-size: 1px;
 }
 
-.art-footer-r, .art-footer-l
-{
-  top: expression(this.parentNode.offsetHeight-50+'px');
-  background: none;
-  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+artGetStyleUrl()+"images/footer_s.png',sizingMethod='crop')");
-  zoom: 1;
-  font-size: 1px;
-}
-
-.art-footer-r
-{
-  left: expression(this.parentNode.offsetWidth-10+'px');
-  clip: rect(auto auto auto 5px);
-}
 
 
 
