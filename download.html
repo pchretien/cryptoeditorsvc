@@ -1,0 +1,51 @@
+{% extends "tpage.html" %}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/how" ><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/how">Overview</a></li>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="/download" class="active"><span class="l"></span><span class="r"></span><span class="t">Download</span></a>
+		</li>
+		<li>
+			<a href="/about"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
+
+{% block content %}
+<p>CryptoEditor if <b>FREE</b> and will always be. CryptoEditor allows you to secure your passwords, Notes and credit card numbers on your computer with industrial strenght encryption algorithms.</p>
+<div align="center">
+<a class="art-button" href="/downloads/cryptoeditor.msi" onClick="javascript: pageTracker._trackPageview('/downloads/cryptoeditor.msi');"><b><font size="4">Download</font></b></a>
+</div>
+
+<br>
+<br>
+
+<p>Once you installed CryptoEditor, we invite you to register to our <b>online synchronization service</b> to store your sensitive data on the web. All your information is encrypted on YOUR computer so it is impossible for us or anyone else to access any of your data. That makes CryptoEditor the most secure solution to protect your precious information.</p>
+<div align="center">
+<br>
+<a href="/register">Register now</a> and get 3 months free of charge. NO CREDIT CARD REQUIRED.
+<br>
+<a href="/register"><font size="4">Register</font></a>
+</div>
+{%endblock%}

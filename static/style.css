@@ -904,7 +904,7 @@ div.art-content-layout-row
   margin: 0 !important;
   padding: 0 11px !important;
   overflow: visible;
-  cursor: default;
+  cursor:auto;
   z-index: 0;
 }
 
