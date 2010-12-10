@@ -3,18 +3,20 @@ import urllib
 import uuid
 import datetime
 import wsgiref.handlers
-from Crypto.Hash import MD5
 
+from Crypto.Hash import MD5
 from google.appengine.api import mail
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
-#from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 
 from basbrun import User
 from cryptoeditorsvc import CryptoEditorData
 from appengine_utilities.sessions import Session
+
+from os import environ
+import captcha
 
 debug = False
 senderEmailAddress = 'philippe.chretien@gmail.com'
@@ -488,7 +490,8 @@ class ConfirmHandler(webapp.RequestHandler):
         
 class ContactHandler(webapp.RequestHandler):
     def get(self):
-        pageParams = checkLogin(self)             
+        pageParams = checkLogin(self)
+        pageParams['captcha'] = captcha.displayhtml(public_key = "6Lc_gb8SAAAAAJWVBIquKY9vHVQEAyhRitnxYb3A",use_ssl=False, error=None)
         self.response.out.write( template.render('contact.html', pageParams))
         
     def post(self):
@@ -505,6 +508,18 @@ class ContactHandler(webapp.RequestHandler):
         pageParams['subject'] =  self.request.get('subject')
         pageParams['body'] =  self.request.get('body')
         
+        challenge = self.request.get('recaptcha_challenge_field')
+        response = self.request.get('recaptcha_response_field')
+        remoteip = environ['REMOTE_ADDR']
+        
+        pageParams['captcha'] = captcha.displayhtml(public_key = "6Lc_gb8SAAAAAJWVBIquKY9vHVQEAyhRitnxYb3A",use_ssl=False, error=None)
+        
+        cResponse = captcha.submit(challenge,response,"6Lc_gb8SAAAAAK85P9VLyReVYFy15xkqP1DBrBxa",remoteip)
+        if not cResponse.is_valid:
+			pageParams['error'] = cResponse.error_code
+			self.response.out.write( template.render('contact.html', pageParams))
+			return
+			
         if fullname is None or len(fullname) == 0:
             pageParams['error'] = "Please provide your name."
             self.response.out.write( template.render('contact.html', pageParams))

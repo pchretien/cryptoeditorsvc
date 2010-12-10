@@ -57,16 +57,18 @@
 						<p><span style="color:green">{{message}}</span></p>
 					{%endif%}
 					Your name:<br>
-					<input type="text" size=32 name="fullname" {%if fullname%}value="{{fullname}}"{%endif%}/><br>
+					<input type="text" style="width:300px;" name="fullname" {%if fullname%}value="{{fullname}}"{%endif%}/><br>
 					Your email address:<br>
-					<input type="text" size=32 name="email1" {%if email1%}value="{{email1}}"{%endif%}/><br>
+					<input type="text" style="width:300px;" name="email1" {%if email1%}value="{{email1}}"{%endif%}/><br>
 					Enter your email again:<br>
-					<input type="text" size=32 name="email2" {%if email2%}value="{{email2}}"{%endif%}/><br>
+					<input type="text" style="width:300px;" name="email2" {%if email2%}value="{{email2}}"{%endif%}/><br>
 					Subject:<br>
-					<input type="text" size=32 name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
+					<input type="text" style="width:300px;" name="subject" {%if subject%}value="{{subject}}"{%endif%}/><br>
 					Message:<br>
-					<textarea cols=30 rows=4 name="body">{%if body%}{{body}}{%endif%}</textarea>
-<br>
+					<textarea style="width:300px;" rows=8 name="body">{%if body%}{{body}}{%endif%}</textarea>
+					<p>
+					{{captcha}}
+					</p>
 					<input type="submit" value="Send"/>
 				</form></td>
 		  </tr>
