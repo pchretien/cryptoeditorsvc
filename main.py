@@ -776,6 +776,11 @@ class Download(webapp.RequestHandler):
     def get(self):
         pageParams = checkLogin(self)        
         self.response.out.write( template.render('download.html', pageParams))
+        
+class  DownloadThanks(webapp.RequestHandler):
+    def get(self):
+        pageParams = checkLogin(self)        
+        self.response.out.write( template.render('downloadthanks.html', pageParams))
       
 def main():
     application = webapp.WSGIApplication([('/', MainHandler), 
@@ -797,10 +802,11 @@ def main():
                                           ('/success', SuccessHandler),
                                           ('/startnow', StartNow),
                                           ('/how', How),
-					  ('/about', About),
-					  ('/videos', Videos),
-					  ('/screenshots', Screenshots),
-					  ('/download', Download),
+                                          ('/downloadthanks', DownloadThanks),                                          
+                                          ('/about', About),
+                                          ('/videos', Videos),
+                                          ('/screenshots', Screenshots),
+                                          ('/download', Download),
                                           ('/mailjob', MailJobHandler) ], debug=True)
     
     wsgiref.handlers.CGIHandler().run(application)

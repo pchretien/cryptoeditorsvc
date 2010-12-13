@@ -1,0 +1,79 @@
+{% extends "tpage.html" %}
+
+{%block head%}
+	<meta http-equiv="refresh" content="2; URL=/downloads/cryptoeditor.msi">
+
+	<!-- Google Code for DownloadCryptoEditor Conversion Page -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 1070872855;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "ffffff";
+	var google_conversion_label = "8sPNCMf-zgIQl_LQ_gM";
+	var google_conversion_value = 0;
+	/* ]]> */
+	</script>
+	<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+	</script>
+	<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1070872855/?label=8sPNCMf-zgIQl_LQ_gM&amp;guid=ON&amp;script=0"/>
+	</div>
+	</noscript>
+{%endblock%}
+
+{%block menu%}
+	<ul class="art-menu">
+		<li>
+			<a href="/"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+		</li>
+		{%if email%}
+		<li>
+			<a href="/myprofile"><span class="l"></span><span class="r"></span><span class="t">Your profile</span></a>
+		</li>
+		{%endif%}
+		<li>
+			<a href="/how" ><span class="l"></span><span class="r"></span><span class="t">How it works</span></a>
+			<ul>
+				<li><a href="/how">Overview</a></li>
+				<li><a href="/videos">Videos</a></li>
+				<li><a href="/screenshots">Screenshots</a></li>
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="/download" class="active"><span class="l"></span><span class="r"></span><span class="t">Download</span></a>
+		</li>
+		<li>
+			<a href="/about"><span class="l"></span><span class="r"></span><span class="t">Company</span></a>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
+		</li>
+	</ul>
+{%endblock%}
+
+{% block content %}
+	<p>
+		<b>Thank you for downloading CryptoEditor!</b>
+	</p>
+	<p>
+		Your download should start automatically. If not, click this link to <a href="/downloads/cryptoeditor.msi">start the download</a>.
+	</p>
+
+
+	<script type="text/javascript" language="JavaScript">
+	<!--
+
+	function Redirect()
+	{
+		window.location = "/";
+	}
+
+	window.onload = function() { setTimeout("Redirect()",10000); }
+
+	-->
+	</script>
+{%endblock%}
